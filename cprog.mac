@@ -1,0 +1,159 @@
+.ig
+
+	brian's sleazy book macros
+
+..
+.ds d .
+.nr PS 10	\" text point size
+.nr VS 12	\" text vertical (inter-line) spacing
+.ps \n(PS
+.vs \n(VS
+.nr P1 .4i	\" program indent in .P1
+.nr dP 1	\" delta point size for program
+.nr dV 2p	\" delta vertical for programs
+.nr dT 5	\" delta tab stop for programs
+.	\" the following are book values
+....pl 9.2i	\" page length; this gives 7.2i of text
+....nr LL 4.8i	\" line length.  this gives 6x9 book size
+....nr LT 4.8i	\" ditto
+....FL 4.8i	\" line length in footnotes
+....po 1.5i	\" page offset
+....nr PD 0	\" paragraph space is zero
+....nr PI .2i	\" paragraph indent
+.hy 14		\" hyphenation: 2=not last lines; 4= no -xx; 8=no xx-
+.hw semi-colon
+.hw hexa-decimal
+.hw estab-lished
+.hw multi-line
+.ig
+	the next several are all called the same way
+	.UC arg
+		prints arg in smaller size
+	.UC arg right
+		prints arg in smaller size, right in regular
+	.UC arg right left  [sic]
+		prints left regular, arg smaller, right regular
+		as in .UC UNIX ) (
+..
+.de UC		\" print argument in small size but keep surround in regular
+\&\\$3\s-1\\$1\\s0\&\\$2
+..
+.de CW		\" puts first arg in CW font
+\%\&\\$3\f(CW\\$1\f1\&\\$2
+..
+.de IT		\" ditto to italicize argument
+\&\\$3\f2\\$1\f1\^\&\\$2
+..
+.de BI		\" bold italic
+\&\\$3\f(BI\\$1\f1\^\&\\$2
+..
+.de UI		\" CW then italic
+\&\f(CW\\$1\f2\\$2\f1\\$3
+..
+.ig
+	programs are displayed between .P1/.P2 pairs
+	default is to indent by 1/2 inch, nofill, dP smaller
+	.P1 x causes an indent of x instead.
+
+	.P3 can be used to specify optional page-break points
+	inside .P1/.P2
+..
+.nr DV .5v	\" space before start of program
+.nr dT 5
+.de P1
+.nr P1 .4i	\" program indent in .P1
+.if \\n(.$ .nr P1 \\$1
+.br
+.nr v \\n(.v
+.di p1
+.in \\n(P1u
+.nf
+.ps -\\n(dP
+.vs -\\n(dVu
+.ft CW
+.nr t \\n(dT*\\w'x'u
+.ta 1u*\\ntu 2u*\\ntu 3u*\\ntu 4u*\\ntu 5u*\\ntu 6u*\\ntu 7u*\\ntu 8u*\\ntu 9u*\\ntu 10u*\\ntu 11u*\\ntu 12u*\\ntu 13u*\\ntu 14u*\\ntu
+..
+.de P2
+.br
+.ps \\n(PS
+.vs \\n(VSp
+.vs \\nvu
+.ft 1
+.in
+.di
+.br
+.sp \\n(DVu
+.br
+.if \\n(.$=0 .ne \\n(dnu  \" -\\n(DVu
+.p1
+.sp \\n(DVu
+.br
+.fi
+..
+.de P3	\" provides optional break in P1/P2
+.nr x \\n(DV
+.nr DV 0
+.P2
+.P1 \\n(P1u
+.nr DV \\nx
+..
+.de Q1	\" simple version for use within exercises, etc.
+.nr P1 .4i
+.if \\n(.$ .nr P1 \\$1
+.br
+.di p1
+.sp \\n(DVu
+.in \\n(P1u
+.nf
+.ps -\\n(dP
+.vs -\\n(dVu
+.ft CW
+.nr t \\n(dT*\\w'x'u
+.ta 1u*\\ntu 2u*\\ntu 3u*\\ntu 4u*\\ntu 5u*\\ntu 6u*\\ntu 7u*\\ntu 8u*\\ntu 9u*\\ntu 10u*\\ntu 11u*\\ntu 12u*\\ntu 13u*\\ntu 14u*\\ntu
+..
+.de Q2
+.sp \\n(DVu
+.ps +\\n(dP
+.vs +\\n(dVu
+.ft 1
+.in
+.di
+.if \\n(.$=0 .ne \\n(dnu-\\n(DVu
+.br
+.p1
+.br
+.fi
+..
+.ig
+	the .get macro permits inclusion of programs or parts thereof
+	usually within .P1/.P2.  Call is
+	.get name
+		to get contents of file name
+	.get name line
+		to get line of file;  line is a number or /regexp/
+	.get name line1 line2
+		get from line1 to line2 inclusive
+	.get name line1 line2 exitline
+		ditto, but stop when first exitline is seen
+	"name" is relative to directory given in \*d
+		default name of code directory is Code
+	NOTE THAT THE MACRO IS CALLED AS .get.  The "t" is \\$1.
+..
+.
+.de ge	\" get file
+.sy /usr/bwk/bin/trget \\n(.$ \\*d/\\$2 '\\$3' '\\$4' '\\$5' >junk.\\n($$
+.so junk.\\n($$
+..
+.de ru	\" .run command, insert input.  note arg 1 is "n"
+.sy \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9 >junk.\\n($$
+.so junk.\\n($$
+..
+.\"
+.am EM	\" wrap up at end of input
+.sy rm -f junk.\\n($$ /tmp/foo\n($$	\" remove temporaries
+..
+.de ix	\" the index macro.  period.
+.ie '\\n(.z'' .tm ix: \\$1 \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9	\\n(pn
+.el \\!.ix \\$1 \\$2 \\$3 \\$4 \\$5 \\$6 \\$7 \\$8 \\$9
+..

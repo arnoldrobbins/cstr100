@@ -1,0 +1,5 @@
+1981-04-02         Brian W. Kernighan     <bwk@research.bell-labs.com>
+
+	* cstr100: Document finished.
+	* cprog.mac: Macros needed for formatting.
+	* ChangeLog: Created.
