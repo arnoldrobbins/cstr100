@@ -1,0 +1,5 @@
+2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* tmac.s, tmac.scover, tmac.sdisp, tmac.skeep,
+	tmac.srefs: Copied from V7 distribution tape,
+	dated January, 1979.
