@@ -334,7 +334,7 @@ is to define a family of routines
 with a member for each possible string size,
 or to make all strings
 (including constant strings like
-.UL 'define' )
+.UL \&'define' )
 of the same length.
 .PP
 The latter approach is the lesser of two great evils.

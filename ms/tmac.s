@@ -63,7 +63,8 @@
 ..
 .de TM
 .if \\n(IM=0 .if \\n(MN=0 .pn 0
-.so /usr/lib/tmac/tmac.scover
+.\" Expecting to be run from parent directory
+.so ms/tmac.scover
 .if \\n(IM=0 .if \\n(MN=0 .rm IM
 .if \\n(IM=0 .if \\n(MN=0 .rm MF
 .if \\n(IM=0 .if \\n(MN=0 .rm MR
@@ -568,15 +569,15 @@ Computing Science Technical Report No. \\*(MN
 .rr a| b| c| d| e| f| g| h| i| j| k| l| m|
 .rr a- b- c- d- e- f- g- h- i- j- k- l- m-
 ..
-.so /usr/lib/tmac/tmac.sdisp
+.so ms/tmac.sdisp
 .de KS
-.so /usr/lib/tmac/tmac.skeep
+.so ms/tmac.skeep
 .]K
 .rn ]J KF
 .rn ]K KS
 ..
 .de KF
-.so /usr/lib/tmac/tmac.skeep
+.so ms/tmac.skeep
 .]J
 .rn ]K KS
 .rn ]J KF
@@ -803,7 +804,7 @@ Computing Science Technical Report No. \\*(MN
 .mk #T
 .ns
 ..
-.ch FO \\n(YYu
+.ch FO \n(YYu
 .de C2
 .po \\n(POu
 'bp
@@ -1272,7 +1273,7 @@ Naperville, Illinois 60540
 .ds v \\k:\\h'+\\w'e'u/4u'\\v'-0.6m'\\s6v\\s0\\v'0.6m'\\h'|\\n:u'
 .		\" cedilla
 .ds , \\k:\\h'\\w'c'u*0.4u'\\z,\\h'|\\n:u'
-.so /usr/lib/tmac/tmac.srefs
+.so ms/tmac.srefs
 .if n .ds [. [
 .if t .ds [. \s-2\v'-.4m'\f1
 .if n .ds .] ]

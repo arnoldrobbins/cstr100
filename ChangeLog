@@ -1,6 +1,9 @@
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* cstr100: Put .ND macro into effect.
+	Add a \& before a '...string...' in a macro call to keep
+	groff happy.
+	* Makefile: New file.
 
 2017-08-31         Michael Parson        <mparson@bl.org>
 
