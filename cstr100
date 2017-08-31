@@ -4,7 +4,7 @@
 .ds pf CW
 .so ./cprog.mac
 .if n .ls 2
-....ND "April 2, 1981"
+.ND "April 2, 1981"
 ....TM 81-11272-12 11173 39199-11
 .TR 100
 .TL
