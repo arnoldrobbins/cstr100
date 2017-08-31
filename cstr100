@@ -2,7 +2,7 @@
 .fp 2 PI
 .fp 3 PB
 .ds pf CW
-.so /usr/bwk/src/cprog.mac
+.so ./cprog.mac
 .if n .ls 2
 ....ND "April 2, 1981"
 ....TM 81-11272-12 11173 39199-11
@@ -66,7 +66,11 @@ and a personal attempt to rewrite
 .ul
 Software Tools
 .[
-kernighan plauger software tools addison
+%T Software Tools
+%A B. W. Kernighan
+%A P. J. Plauger
+%I Addison-Wesley
+%D 1976
 .]
 in Pascal.
 .PP
@@ -107,7 +111,9 @@ provided by the University of California at Berkeley.
 The language is close to the nominal standard
 of Jensen and Wirth,
 .[
-jensen wirth pascal report 1978
+%A Jensen Wirth
+%T Pascal User Manual and Report
+%D 1978
 %O (2nd edition.)
 .]
 with good diagnostics and careful run-time checking.
@@ -137,7 +143,11 @@ lists 175 items under the heading of
 The most often cited papers (well worth reading) are
 a strong critique by Habermann
 .[
-habermann pascal critical
+%A A. Nico Habermann
+%T Critical Comments on the Programming Language Pascal
+%D 1973
+%J Acta Informatica
+%V 3
 .]
 and an equally strong rejoinder by
 Lecarme and Desjardins.

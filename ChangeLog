@@ -1,4 +1,8 @@
-1981-04-02         Brian W. Kernighan     <bwk@research.bell-labs.com>
+2017-08-31         Michael Parson        <mparson@bl.org>
+
+	* cstr100: Update references to be in standalone form.
+
+1981-04-02         Brian W. Kernighan    <bwk@research.bell-labs.com>
 
 	* cstr100: Document finished.
 	* cprog.mac: Macros needed for formatting.
