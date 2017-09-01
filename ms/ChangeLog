@@ -1,3 +1,8 @@
+2017-09-01         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* tmac.srefs: Fix printing of date in tech report references.
+	Fix printing of "pp." and "p." in all references.
+
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* tmac.s: Change absolute paths to relative ones.
