@@ -3,6 +3,8 @@
 	* cstr100.ms: Revise some of the references to match the original
 	paper (based on the published PostScript).
 	* Makefile: Makefile the PDF depend on the troff input.
+	* 100.ps: Original PostScript. New file.
+	* README.md: Updated.
 
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 

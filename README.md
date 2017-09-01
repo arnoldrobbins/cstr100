@@ -22,8 +22,9 @@ would be a shame if the source were lost.
 * `README.md` - This file.
 * `cprog.mac` - Brian's macros.
 * `cstr100.ms` - The `troff` source for the memorandum.
+* `100.ps` - The originally published PostScript version.
 * `ms` - The original MS macros, edited slightly.
 
 ##### Last Updated:
 
-Thu Aug 31 21:21:24 IDT 2017
+Fri Sep  1 16:13:49 IDT 2017

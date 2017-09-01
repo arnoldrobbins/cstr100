@@ -1,0 +1,1849 @@
+%!PS
+%%Version: 3.3
+%%DocumentFonts: (atend)
+%%Pages: (atend)
+%%EndComments
+%
+% Version 3.3 prologue for troff files.
+%
+
+/#copies 1 store
+/aspectratio 1 def
+/formsperpage 1 def
+/landscape false def
+/linewidth .3 def
+/magnification 1 def
+/margin 0 def
+/orientation 0 def
+/resolution 720 def
+/rotation 1 def
+/xoffset 0 def
+/yoffset 0 def
+
+/roundpage true def
+/useclippath true def
+/pagebbox [0 0 612 792] def
+
+/R  /Times-Roman def
+/I  /Times-Italic def
+/B  /Times-Bold def
+/BI /Times-BoldItalic def
+/H  /Helvetica def
+/HI /Helvetica-Oblique def
+/HB /Helvetica-Bold def
+/HX /Helvetica-BoldOblique def
+/CW /Courier def
+/CO /Courier def
+/CI /Courier-Oblique def
+/CB /Courier-Bold def
+/CX /Courier-BoldOblique def
+/PA /Palatino-Roman def
+/PI /Palatino-Italic def
+/PB /Palatino-Bold def
+/PX /Palatino-BoldItalic def
+/Hr /Helvetica-Narrow def
+/Hi /Helvetica-Narrow-Oblique def
+/Hb /Helvetica-Narrow-Bold def
+/Hx /Helvetica-Narrow-BoldOblique def
+/KR /Bookman-Light def
+/KI /Bookman-LightItalic def
+/KB /Bookman-Demi def
+/KX /Bookman-DemiItalic def
+/AR /AvantGarde-Book def
+/AI /AvantGarde-BookOblique def
+/AB /AvantGarde-Demi def
+/AX /AvantGarde-DemiOblique def
+/NR /NewCenturySchlbk-Roman def
+/NI /NewCenturySchlbk-Italic def
+/NB /NewCenturySchlbk-Bold def
+/NX /NewCenturySchlbk-BoldItalic def
+/ZD /ZapfDingbats def
+/ZI /ZapfChancery-MediumItalic def
+/S  /S def
+/S1 /S1 def
+/GR /Symbol def
+
+/inch {72 mul} bind def
+/min {2 copy gt {exch} if pop} bind def
+
+/setup {
+	counttomark 2 idiv {def} repeat pop
+
+	landscape {/orientation 90 orientation add def} if
+	/scaling 72 resolution div def
+	linewidth setlinewidth
+	1 setlinecap
+
+	pagedimensions
+	xcenter ycenter translate
+	orientation rotation mul rotate
+	width 2 div neg height 2 div translate
+	xoffset inch yoffset inch neg translate
+	margin 2 div dup neg translate
+	magnification dup aspectratio mul scale
+	scaling scaling scale
+
+	/Symbol /S Sdefs cf
+	/Times-Roman /S1 S1defs cf
+	0 0 moveto
+} def
+
+/pagedimensions {
+	useclippath userdict /gotpagebbox known not and {
+		/pagebbox [clippath pathbbox newpath] def
+		roundpage currentdict /roundpagebbox known and {roundpagebbox} if
+	} if
+	pagebbox aload pop
+	4 -1 roll exch 4 1 roll 4 copy
+	landscape {4 2 roll} if
+	sub /width exch def
+	sub /height exch def
+	add 2 div /xcenter exch def
+	add 2 div /ycenter exch def
+	userdict /gotpagebbox true put
+} def
+
+/pagesetup {
+	/page exch def
+	currentdict /pagedict known currentdict page known and {
+		page load pagedict exch get cvx exec
+	} if
+} def
+
+/decodingdefs [
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg /y exch def counttomark 2 idiv {y moveto show} repeat}
+	{neg moveto {2 index stringwidth pop sub exch div 0 32 4 -1 roll widthshow} repeat}
+	{neg moveto {spacewidth sub 0.0 32 4 -1 roll widthshow} repeat}
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg setfunnytext}
+] def
+
+/setdecoding {/t decodingdefs 3 -1 roll get bind def} bind def
+
+/w {neg moveto show} bind def
+/m {neg dup /y exch def moveto} bind def
+/done {/lastpage where {pop lastpage} if} def
+
+/f {
+	dup /font exch def findfont exch
+	dup /ptsize exch def scaling div dup /size exch def scalefont setfont
+	linewidth ptsize mul scaling 10 mul div setlinewidth
+	/spacewidth ( ) stringwidth pop def
+} bind def
+
+/changefont {
+	/fontheight exch def
+	/fontslant exch def
+	currentfont [
+		1 0
+		fontheight ptsize div fontslant sin mul fontslant cos div
+		fontheight ptsize div
+		0 0
+	] makefont setfont
+} bind def
+
+/sf {f} bind def
+
+/cf {
+	dup length 2 idiv
+	/entries exch def
+	/chtab exch def
+	/newfont exch def
+
+	findfont dup length 1 add dict
+	/newdict exch def
+	{1 index /FID ne {newdict 3 1 roll put} {pop pop} ifelse} forall
+
+	newdict /Metrics entries dict put
+	newdict /Metrics get
+	begin
+		chtab aload pop
+		1 1 entries {pop def} for
+		newfont newdict definefont pop
+	end
+} bind def
+
+%
+% A few arrays used to adjust reference points and character widths in some
+% of the printer resident fonts. If square roots are too high try changing
+% the lines describing /radical and /radicalex to,
+%
+%	/radical	[0 -75 550 0]
+%	/radicalex	[-50 -75 500 0]
+%
+% Move braceleftbt a bit - default PostScript character is off a bit.
+%
+
+/Sdefs [
+	/bracketlefttp		[201 500]
+	/bracketleftbt		[201 500]
+	/bracketrighttp		[-81 380]
+	/bracketrightbt		[-83 380]
+	/braceleftbt		[203 490]
+	/bracketrightex		[220 -125 500 0]
+	/radical		[0 0 550 0]
+	/radicalex		[-50 0 500 0]
+	/parenleftex		[-20 -170 0 0]
+	/integral		[100 -50 500 0]
+	/infinity		[10 -75 730 0]
+] def
+
+/S1defs [
+	/underscore		[0 80 500 0]
+	/endash			[7 90 650 0]
+] def
+%
+% Tries to round clipping path dimensions, as stored in array pagebbox, so they
+% match one of the known sizes in the papersizes array. Lower left coordinates
+% are always set to 0.
+%
+
+/roundpagebbox {
+    7 dict begin
+	/papersizes [8.5 inch 11 inch 14 inch 17 inch] def
+
+	/mappapersize {
+		/val exch def
+		/slop .5 inch def
+		/diff slop def
+		/j 0 def
+		0 1 papersizes length 1 sub {
+			/i exch def
+			papersizes i get val sub abs
+			dup diff le {/diff exch def /j i def} {pop} ifelse
+		} for
+		diff slop lt {papersizes j get} {val} ifelse
+	} def
+
+	pagebbox 0 0 put
+	pagebbox 1 0 put
+	pagebbox dup 2 get mappapersize 2 exch put
+	pagebbox dup 3 get mappapersize 3 exch put
+    end
+} bind def
+
+%%EndProlog
+%%BeginSetup
+mark
+/resolution 720 def
+setup
+2 setdecoding
+%%EndSetup
+%%Page: 0 1
+/saveobj save def
+mark
+1 pagesetup
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1740 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 1860 t
+(Computing Science Technical Report No. 100)5 1996 1 1882 3180 t
+12 PB f
+(Why Pascal is Not My Favorite Programming Language)7 3032 1 1364 3450 t
+10 PI f
+(Brian W. Kernighan)2 826 1 2467 3690 t
+10 PA f
+(April 2, 1981)2 561 1 720 6240 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 0 1
+%%Page: 0 2
+/saveobj save def
+mark
+2 pagesetup
+12 PB f
+(Why Pascal is Not My Favorite Programming Language)7 3032 1 1364 1230 t
+10 PI f
+(Brian W. Kernighan)2 826 1 2467 1470 t
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1650 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 1770 t
+10 PI f
+(ABSTRACT)2621 2270 w
+10 PA f
+( dominant language of)3 1038(The programming language Pascal has become the)6 2312 2 1330 2566 t
+( has also strongly influenced lan-)5 1533( It)1 132( education.)1 503(instruction in computer science)3 1432 4 1080 2686 t
+(guages developed subsequently, in particular Ada.)5 2251 1 1080 2806 t
+( has)1 182(Pascal was originally intended primarily as a teaching language, but it)10 3168 2 1330 2962 t
+( a language for serious programming)5 1646(been more and more often recommended as)6 1954 2 1080 3082 t
+(as well, for example, for system programming tasks and even operating systems.)11 3573 1 1080 3202 t
+( form, is just plain not suitable for serious pro-)9 2054(Pascal, at least in its standard)5 1296 2 1330 3358 t
+( discusses my personal discovery of some of the reasons)9 2565( paper)1 294(gramming. This)1 741 3 1080 3478 t
+(why.)1080 3598 w
+(April 2, 1981)2 561 1 720 4078 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 0 2
+%%Page: 1 3
+/saveobj save def
+mark
+3 pagesetup
+12 PB f
+(Why Pascal is Not My Favorite Programming Language)7 3032 1 1364 1230 t
+10 PI f
+(Brian W. Kernighan)2 826 1 2467 1470 t
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1650 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 1770 t
+10 PB f
+(1. Genesis)1 490 1 720 2130 t
+10 PA f
+( in two events \320 a spate of papers that compare C and Pas-)13 2883(This paper has its origins)4 1187 2 970 2286 t
+(cal)720 2406 w
+8 PA f
+(1, 2, 3, 4)3 259 1 843 2374 t
+10 PA f
+(and a personal attempt to rewrite)5 1480 1 1127 2406 t
+10 PI f
+(Software Tools)1 596 1 2632 2406 t
+8 PA f
+(5)3228 2374 w
+10 PA f
+(in Pascal.)1 412 1 3293 2406 t
+( and Pascal is rather like comparing a Learjet to a Piper Cub \320 one is meant)16 3461(Comparing C)1 609 2 970 2562 t
+( \320 so such comparisons tend to)6 1426(for getting something done while the other is meant for learning)10 2894 2 720 2682 t
+( the revision of)3 698( But)1 217(be somewhat farfetched.)2 1109 3 720 2802 t
+10 PI f
+(Software Tools)1 609 1 2782 2802 t
+10 PA f
+( relevant comparison.)2 986(seems a more)2 625 2 3429 2802 t
+( written in Ratfor, a ``structured'' dialect of Fortran imple-)9 2626(The programs therein were originally)4 1694 2 720 2922 t
+( really Fortran in disguise, it has few of the assets that)11 2438( Ratfor is)2 409( Since)1 287(mented by a preprocessor.)3 1186 4 720 3042 t
+( types more suited to character processing, data structuring capabilities for)10 3372(Pascal brings \320 data)3 948 2 720 3162 t
+( telling the truth about)4 1006(better defining the organization of one's data, and strong typing to enforce)11 3314 2 720 3282 t
+(the data.)1 383 1 720 3402 t
+( paper)1 284( This)1 241( rewrite the programs in Pascal.)5 1408(It turned out to be harder than I had expected to)10 2137 4 970 3558 t
+( program-)1 452(is an attempt to distill out of the experience some lessons about Pascal's suitability for)14 3868 2 720 3678 t
+( is)1 100( It)1 121(ming \(as distinguished from learning about programming\).)6 2651 3 720 3798 t
+10 PI f
+(not)3621 3798 w
+10 PA f
+(a comparison of Pascal with)4 1257 1 3783 3798 t
+(C or Ratfor.)2 519 1 720 3918 t
+( that dialect of Pascal supported by the Pascal interpreter)9 2535(The programs were first written in)5 1535 2 970 4074 t
+10 PI f
+(pi)720 4194 w
+10 PA f
+( language is close to the nominal)6 1530( The)1 232( California at Berkeley.)3 1058(provided by the University of)4 1381 4 839 4194 t
+(standard of Jensen and Wirth,)4 1336 1 720 4314 t
+8 PA f
+(6)2056 4282 w
+10 PA f
+( then,)1 251( Since)1 286( run-time checking.)2 865(with good diagnostics and careful)4 1514 4 2124 4314 t
+( except for new libraries of primitives, on four other)9 2309(the programs have also been run, unchanged)6 2011 2 720 4434 t
+( to as VU, for)4 591(systems: an interpreter from the Free University of Amsterdam \(hereinafter referred)10 3729 2 720 4554 t
+( version of the Berkeley system \(a true compiler\), a compiler purveyed)11 3167(Vrije Universiteit\), a VAX)3 1153 2 720 4674 t
+( but the last of these Pascal systems are)8 1834( All)1 200( on a Z80.)3 472(by Whitesmiths, Ltd., and UCSD Pascal)5 1814 4 720 4794 t
+(written in C.)2 557 1 720 4914 t
+( recent bibliography)2 939( A)1 151( language.)1 480(Pascal is a much-discussed)3 1249 4 970 5070 t
+8 PA f
+(7)3789 5038 w
+10 PA f
+(lists 175 items under the)4 1163 1 3877 5070 t
+( often cited papers \(well worth reading\))6 1794( most)1 250( The)1 224(heading of ``discussion, analysis and debate.'')5 2052 4 720 5190 t
+(are a strong critique by Habermann)5 1692 1 720 5310 t
+8 PA f
+(8)2412 5278 w
+10 PA f
+( strong rejoinder by Lecarme and Des-)6 1839(and an equally)2 701 2 2500 5310 t
+(jardins.)720 5430 w
+8 PA f
+(9)1048 5398 w
+10 PA f
+( Boom and DeJong)3 839(The paper by)2 594 2 1117 5430 t
+8 PA f
+(10)2550 5398 w
+10 PA f
+( own assessment of Pas-)4 1074( Wirth's)1 383(is also good reading.)3 925 3 2658 5430 t
+( to summarize the literature; this paper represents)7 2253( have no desire or ability)5 1119( I)1 89(cal is found in [11].)4 859 4 720 5550 t
+( have)1 250( I)1 98(my personal observations and most of it necessarily duplicates points made by others.)12 3972 3 720 5670 t
+(tried to organize the rest of the material around the issues of)11 2670 1 720 5790 t
+(types and scope)2 707 1 1080 5970 t
+(control flow)1 539 1 1080 6090 t
+(environment)1080 6210 w
+(cosmetics)1080 6330 w
+(and within each area more or less in decreasing order of significance.)11 3049 1 720 6510 t
+( at the outset: Pascal may be an admirable language for teaching)11 2977(To state my conclusions)3 1093 2 970 6666 t
+( was a considerable)3 919( It)1 137( that.)1 244(beginners how to program; I have no first-hand experience with)9 3020 4 720 6786 t
+( of which Ada is)4 736( has certainly influenced the design of recent languages,)8 2495( It)1 120(achievement for 1968.)2 969 4 720 6906 t
+( \(both current and proposed\), Pascal is)6 1743( in its standard form)4 934( But)1 212(likely to be the most important.)5 1431 4 720 7026 t
+( that)1 201( is suitable only for small, self-contained programs)7 2240( It)1 118(not adequate for writing real programs.)5 1761 4 720 7146 t
+( trivial interactions with their environment and that make no use of any software)13 3862(have only)1 458 2 720 7266 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 1 3
+%%Page: 2 4
+/saveobj save def
+mark
+4 pagesetup
+10 PA f
+(- 2 -)2 166 1 2797 480 t
+(written by anyone else.)3 1027 1 720 840 t
+10 PB f
+( and Scopes)2 538(2. Types)1 403 2 720 1080 t
+10 PA f
+( that means that each object)5 1222( speaking,)1 449( Roughly)1 431(Pascal is \(almost\) a strongly typed language.)6 1968 4 970 1236 t
+( implicitly defines the legal values of and operations)8 2348(in a program has a well-defined type which)7 1972 2 720 1356 t
+( values and operations, by)4 1236( language guarantees that it will prohibit illegal)7 2228( The)1 235(on the object.)2 621 4 720 1476 t
+( course compilers may not actually do all)7 1891( Of)1 174(some mixture of compile- and run-time checking.)6 2255 3 720 1596 t
+( strong typing is)3 725( Furthermore,)1 642(the checking implied in the language definition.)6 2123 3 720 1716 t
+10 PI f
+(not)4236 1716 w
+10 PA f
+( confused)1 428(to be)1 217 2 4395 1716 t
+( one defines types)3 794( If)1 117(with dimensional analysis.)2 1181 3 720 1836 t
+10 CW f
+(apple)2837 1836 w
+10 PA f
+(and)3162 1836 w
+10 CW f
+(orange)3356 1836 w
+10 PA f
+(with)3741 1836 w
+9 CW f
+(type)1008 2006 w
+(apple = integer;)2 864 1 1440 2116 t
+(orange = integer;)2 918 1 1440 2226 t
+10 PA f
+(then any arbitrary arithmetic expression involving)5 2231 1 720 2406 t
+10 CW f
+(apples)2976 2406 w
+10 PA f
+(and)3361 2406 w
+10 CW f
+(oranges)3555 2406 w
+10 PA f
+(is perfectly legal.)2 749 1 4000 2406 t
+( arguments to functions and pro-)5 1467( instance,)1 413( For)1 202(Strong typing shows up in a variety of ways.)8 1988 4 970 2562 t
+( is the Fortran freedom to pass a floating)8 1886( Gone)1 299( type matching.)2 712(cedures are checked for proper)4 1423 4 720 2682 t
+( I deem a desirable attribute of Pascal,)7 1689(point number into a subroutine that expects an integer; this)9 2631 2 720 2802 t
+(since it warns of a construction that will certainly cause an error.)11 2851 1 720 2922 t
+( values, and the com-)4 954(Integer variables may be declared to have an associated range of legal)11 3116 2 970 3078 t
+( not put large integers into variables that only)8 2110(piler and run-time support ensure that one does)7 2210 2 720 3198 t
+( although of course run-time checking does exact a)8 2265( too seems like a service,)5 1090( This)1 242(hold small ones.)2 723 4 720 3318 t
+(penalty.)720 3438 w
+(Let us move on to some problems of type and scope.)10 2320 1 970 3594 t
+10 PB f
+( size of an array is part of its type)9 1507(2.1. The)1 378 2 720 3834 t
+10 PA f
+(If one declares)2 640 1 970 3990 t
+9 CW f
+( : array [1..10] of integer;)5 1512(var arr10)1 702 2 1008 4160 t
+(arr20 : array [1..20] of integer;)5 1782 1 1440 4270 t
+10 PA f
+(then)720 4450 w
+10 CW f
+(arr10)942 4450 w
+10 PA f
+(and)1267 4450 w
+10 CW f
+(arr20)1462 4450 w
+10 PA f
+( we want to write a)5 856( Suppose)1 429(are arrays of 10 and 20 integers respectively.)7 1967 3 1788 4450 t
+(procedure)720 4570 w
+10 CW f
+(sort)1201 4570 w
+10 PA f
+( Because)1 403(to sort an integer array.)4 1039 2 1466 4570 t
+10 CW f
+(arr10)2933 4570 w
+10 PA f
+(and)3258 4570 w
+10 CW f
+(arr20)3452 4570 w
+10 PA f
+(have different types, it is not)5 1263 1 3777 4570 t
+(possible to write a single procedure that will sort them both.)10 2666 1 720 4690 t
+(The place where this affects)4 1248 1 970 4846 t
+10 PI f
+(Software Tools)1 603 1 2250 4846 t
+10 PA f
+( I think programs in general, is)6 1409(particularly, and)1 746 2 2885 4846 t
+( doing common, general-purpose)3 1477(that it makes it difficult indeed to create a library of routines for)12 2843 2 720 4966 t
+(operations like sorting.)2 1020 1 720 5086 t
+(The particular data type most often affected is)7 2083 1 970 5242 t
+10 CW f
+(array of char)2 724 1 3085 5242 t
+10 PA f
+( Pascal a string is an)5 927(, for in)2 304 2 3809 5242 t
+( a function)2 476( writing)1 357( Consider)1 458(array of characters.)2 856 4 720 5362 t
+10 CW f
+(index\(s,c\))2895 5362 w
+10 PA f
+(that will return the position in the)6 1517 1 3523 5362 t
+(string)720 5482 w
+10 CW f
+(s)1010 5482 w
+10 PA f
+(where the character)2 887 1 1102 5482 t
+10 CW f
+(c)2021 5482 w
+10 PA f
+( problem is how to handle)5 1199( The)1 225( it does not.)3 538(first occurs, or zero if)4 965 4 2113 5482 t
+(the string argument of)3 1008 1 720 5602 t
+10 CW f
+(index)1758 5602 w
+10 PA f
+( calls)1 224(. The)1 247 2 2058 5602 t
+10 CW f
+(index\('hello',c\))2559 5602 w
+10 PA f
+(and)3548 5602 w
+10 CW f
+(index\('goodbye',c\))3746 5602 w
+10 PA f
+(can-)4855 5602 w
+( over the question of how the)6 1358( pass)1 229( \(I)1 127(not both be legal, since the strings have different lengths.)9 2606 4 720 5722 t
+(end of a constant string like)5 1223 1 720 5842 t
+10 CW f
+('hello')1968 5842 w
+10 PA f
+(can be detected, because it can't.\))5 1461 1 2413 5842 t
+(The next try is)3 633 1 970 5998 t
+9 CW f
+(var temp : array [1..10] of char;)6 1782 1 1008 6168 t
+(temp := 'hello';)2 864 1 1008 6388 t
+(n := index\(temp,c\);)2 1026 1 1008 6608 t
+10 PA f
+(but the assignment to)3 954 1 720 6788 t
+10 CW f
+(temp)1699 6788 w
+10 PA f
+(is illegal because)2 738 1 1964 6788 t
+10 CW f
+('hello')2727 6788 w
+10 PA f
+(and)3172 6788 w
+10 CW f
+(temp)3366 6788 w
+10 PA f
+(are of different lengths.)3 1033 1 3631 6788 t
+( routines with a member for)5 1243(The only escape from this infinite regress is to define a family of)12 2827 2 970 6944 t
+( \(including constant strings like)4 1408(each possible string size, or to make all strings)8 2085 2 720 7064 t
+10 CW f
+('define')4242 7064 w
+10 PA f
+(\) of the)2 318 1 4722 7064 t
+(same length.)1 560 1 720 7184 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 2 4
+%%Page: 3 5
+/saveobj save def
+mark
+5 pagesetup
+10 PA f
+(- 3 -)2 166 1 2797 480 t
+( In)1 166( is the lesser of two great evils.)7 1517(The latter approach)2 913 3 970 840 t
+10 PI f
+(Tools)3615 840 w
+10 PA f
+(, a type called)3 680 1 3831 840 t
+10 CW f
+(string)4560 840 w
+10 PA f
+(is)4969 840 w
+(declared as)1 498 1 720 960 t
+9 CW f
+(type string = array [1..MAXSTR] of char;)6 2160 1 1008 1130 t
+10 PA f
+( constant)1 403(where the)1 445 2 720 1310 t
+10 CW f
+(MAXSTR)1598 1310 w
+10 PA f
+(is ``big enough,'' and all strings in all programs are exactly this size.)12 3052 1 1988 1310 t
+( does)1 234( It)1 120( although it made it possible to get the programs running.)10 2589(This is far from ideal,)4 958 4 720 1430 t
+10 PI f
+(not)4649 1430 w
+10 PA f
+(solve)4810 1430 w
+(the problem of creating true libraries of useful routines.)8 2453 1 720 1550 t
+( is simply not acceptable to use the fixed-size array repre-)10 2549(There are some situations where it)5 1521 2 970 1706 t
+( example, the)2 591(sentation. For)1 633 2 720 1826 t
+10 PI f
+(Tools)1969 1826 w
+10 PA f
+(program to sort lines of text operates by filling up memory with)11 2830 1 2210 1826 t
+( memory can be)3 765(as many lines as will fit; its running time depends strongly on how full the)14 3555 2 720 1946 t
+( for)1 166(packed. Thus)1 628 2 720 2066 t
+10 CW f
+(sort)1552 2066 w
+10 PA f
+(, another representation is used, a long array of characters and a set of)13 3248 1 1792 2066 t
+(indices into this array:)3 984 1 720 2186 t
+9 CW f
+( = array [1..MAXBUF] of char;)5 1566(type charbuf)1 810 2 1008 2356 t
+(charindex = array [1..MAXINDEX] of 0..MAXBUF;)5 2430 1 1440 2466 t
+10 PA f
+( the fixed-length representation cannot be)5 1925(But the procedures and functions written to process)7 2395 2 720 2646 t
+( routines is needed to copy and com-)7 1690(used with the variable-length form; an entirely new set of)9 2630 2 720 2766 t
+( Fortran or C the same functions could be used for both.)11 2469( In)1 142(pare strings in this representation.)4 1514 3 720 2886 t
+(As suggested above, a constant string is written as)8 2223 1 970 3042 t
+9 CW f
+('this is a string')3 972 1 1008 3212 t
+10 PA f
+(and has the type)3 733 1 720 3392 t
+10 CW f
+(packed array [1..n] of char)4 1484 1 1479 3392 t
+10 PA f
+(, where)1 328 1 2963 3392 t
+10 CW f
+(n)3317 3392 w
+10 PA f
+( string literal)2 570( each)1 226( Thus)1 272(is the length.)2 569 4 3403 3392 t
+( print a message)3 725( only way to write a routine that will)8 1649( The)1 220(of different length has a different type.)6 1726 4 720 3512 t
+(and clean up is to pad all messages out to the same maximum length:)13 3062 1 720 3632 t
+9 CW f
+( '\);)1 1242(error\('short message)1 1080 2 1008 3802 t
+(error\('this is a somewhat longer message'\);)5 2322 1 1008 3912 t
+10 PA f
+(Many commercial Pascal compilers provide a)5 2058 1 970 4128 t
+10 CW f
+(string)3063 4128 w
+10 PA f
+( the)1 175(data type that explicitly avoids)4 1407 2 3458 4128 t
+(problem;)720 4248 w
+10 CW f
+(string)1152 4248 w
+10 PA f
+( solves the problem)3 879( This)1 246( regardless of size.)3 831('s are all taken to be the same type)8 1572 4 1512 4248 t
+( problems like computing)3 1167( also fails to solve secondary)5 1301( It)1 126(for this single data type, but no other.)7 1726 4 720 4368 t
+(the length of a constant string; another built-in function is the usual solution.)12 3390 1 720 4488 t
+( that to cope with the array-size problem one merely has to)11 2728(Pascal enthusiasts often claim)3 1342 2 970 4644 t
+( hand, but the defense)4 1029(copy some library routine and fill in the parameters for the program at)12 3291 2 720 4764 t
+(sounds weak at best:)3 916 1 720 4884 t
+8 PA f
+(12)1636 4852 w
+10 PA f
+( more exactly, of the type of its)7 1415(``Since the bounds of an array are part of its type \(or,)11 2405 2 970 5040 t
+( impossible to define a procedure or function which applies to arrays)11 3209(indexes\), it is)2 611 2 970 5160 t
+( a severe one, the)4 801( this restriction may appear to be)6 1516( Although)1 487(with differing bounds.)2 1016 4 970 5280 t
+( occur very infre-)3 789(experiences we have had with Pascal tend to show that it tends to)12 3031 2 970 5400 t
+( the need to bind the size of parametric arrays is a serious)12 2742(quently. [...] However,)2 1078 2 970 5520 t
+(defect in connection with the use of program libraries.'')8 2448 1 970 5640 t
+( believe that if it could be fixed, the)8 1614( I)1 92( single problem with Pascal.)4 1272(This botch is the biggest)4 1092 4 970 5832 t
+( ISO standard for Pascal)4 1076( proposed)1 450( The)1 221(language would be an order of magnitude more usable.)8 2493 4 720 5952 t
+8 PA f
+(13)4960 5920 w
+10 PA f
+( schemas''\), but the acceptance of this part of the standard)10 2587(provides such a fix \(``conformant array)5 1733 2 720 6072 t
+(is apparently still in doubt.)4 1193 1 720 6192 t
+10 PB f
+( are no static variables and no initialization)7 1965(2.2. There)1 467 2 720 6432 t
+10 PA f
+(A)970 6588 w
+10 PI f
+(static)1075 6588 w
+10 PA f
+(variable \(often called an)3 1067 1 1320 6588 t
+10 PI f
+(own)2414 6588 w
+10 PA f
+( Algol-speaking countries\) is one that is pri-)7 1956(variable in)1 471 2 2613 6588 t
+( routine and retains its value from one call of the routine to the next.)14 3109(vate to some)2 574 2 720 6708 t
+10 PI f
+(De facto,)1 364 1 4460 6708 t
+10 PA f
+(For-)4856 6708 w
+( except for)2 467(tran variables are internal static,)4 1423 2 720 6828 t
+8 PA f
+(COMMON)2632 6828 w
+10 PA f
+(;\262 in C there is a)5 716 1 3033 6828 t
+10 CW f
+(static)3776 6828 w
+10 PA f
+(declaration that can)2 877 1 4163 6828 t
+(be applied to local variables.)4 1259 1 720 6948 t
+8 S1 f
+(__________________)720 7048 w
+8 PA f
+(\262 Strictly speaking, in Fortran 77 one must use)8 1631 1 720 7148 t
+8 CW f
+(SAVE)2371 7148 w
+8 PA f
+(to force the static attribute.)4 942 1 2583 7148 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 3 5
+%%Page: 4 6
+/saveobj save def
+mark
+6 pagesetup
+10 PA f
+(- 4 -)2 166 1 2797 480 t
+( means that if a Pascal function or procedure intends)9 2376( This)1 246(Pascal has no such storage class.)5 1448 3 970 840 t
+( value from one call to another, the variable used must be external to the function)15 3665(to remember a)2 655 2 720 960 t
+( in the)2 298( it must be visible to other procedures, and its name must be unique)13 3130( Thus)1 281(or procedure.)1 611 4 720 1080 t
+( example of the problem is a random number generator: the value used to)13 3297( simple)1 325( A)1 132(larger scope.)1 566 4 720 1200 t
+( next one, so it must be stored in a vari-)10 1746(compute the current output must be saved to compute the)9 2574 2 720 1320 t
+( practice, this is typi-)4 957( In)1 152( includes all calls of the random number generator.)8 2334(able whose lifetime)2 877 4 720 1440 t
+( variable is far removed)4 1067( the declaration of such a)5 1123( Thus)1 275(cally the outermost block of the program.)6 1855 4 720 1560 t
+(from the place where it is actually used.)7 1758 1 720 1680 t
+( comes from the text formatter described in Chapter 7 of)10 2581(One example)1 594 2 970 1836 t
+10 PI f
+(Tools.)4180 1836 w
+10 PA f
+(The variable)1 559 1 4481 1836 t
+10 CW f
+(dir)720 1956 w
+10 PA f
+(controls the direction from which excess blanks are inserted during line justification, to)12 4094 1 946 1956 t
+( Pascal, the code looks like this:)6 1383( In)1 142(obtain left and right alternately.)4 1407 3 720 2076 t
+9 CW f
+(program formatter \(...\);)2 1296 1 1008 2246 t
+(var)1008 2466 w
+( direction to add extra spaces })6 1728( {)1 324(dir : 0..1;)2 594 3 1440 2576 t
+(.)1440 2686 w
+(.)1440 2796 w
+(.)1440 2906 w
+(procedure justify \(...\);)2 1296 1 1008 3016 t
+(begin)1008 3126 w
+(dir := 1 - dir; { opposite direction from last time })11 2862 1 1440 3236 t
+(...)1440 3346 w
+(end;)1008 3456 w
+(...)1440 3676 w
+(begin { main routine of formatter })6 1890 1 1008 3896 t
+(dir := 0;)2 486 1 1440 4006 t
+(...)1440 4116 w
+(end;)1008 4226 w
+10 PA f
+(The declaration, initialization and use of the variable)7 2328 1 720 4406 t
+10 CW f
+(dir)3073 4406 w
+10 PA f
+( the program, liter-)3 843(are scattered all over)3 919 2 3278 4406 t
+( C or Fortran,)3 625( In)1 151(ally hundreds of lines apart.)4 1284 3 720 4526 t
+10 CW f
+(dir)2814 4526 w
+10 PA f
+(can be made private to the only routine that)8 2012 1 3028 4526 t
+(needs to know about it:)4 1037 1 720 4646 t
+9 CW f
+(...)1440 4816 w
+(main\(\))1008 4926 w
+({)1008 5036 w
+(...)1440 5146 w
+(})1008 5256 w
+(...)1440 5476 w
+(justify\(\))1008 5696 w
+({)1008 5806 w
+(static int dir = 0;)4 1026 1 1440 5916 t
+(dir = 1 - dir;)4 756 1 1440 6136 t
+(...)1440 6246 w
+(})1008 6356 w
+10 PA f
+( other examples of the same problem on a larger scale; functions)11 2920(There are of course many)4 1150 2 970 6572 t
+(for buffered I/O, storage management, and symbol tables all spring to mind.)11 3399 1 720 6692 t
+( provides no way to initialize variables stati-)7 1980( Pascal)1 328(There are at least two related problems.)6 1762 3 970 6848 t
+( is nothing analogous to Fortran's)5 1508(cally \(i.e., at compile time\); there)5 1462 2 720 6968 t
+10 CW f
+(DATA)3719 6968 w
+10 PA f
+(statement or initializers)2 1052 1 3988 6968 t
+(like)720 7088 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 4 6
+%%Page: 5 7
+/saveobj save def
+mark
+7 pagesetup
+10 PA f
+(- 5 -)2 166 1 2797 480 t
+9 CW f
+(int dir = 0;)3 648 1 1008 830 t
+10 PA f
+( statements to initialize)3 1040( means that a Pascal program must contain explicit assignment)9 2822( This)1 245(in C.)1 213 4 720 1010 t
+(variables \(like the)2 783 1 720 1130 t
+9 CW f
+(dir := 0;)2 486 1 1008 1300 t
+10 PA f
+( bigger, and the program itself bigger at run)8 2049( code makes the program source text)6 1697(above\). This)1 574 3 720 1480 t
+(time.)720 1600 w
+( lack of initializers exacerbates the problem of too-large scope caused by)11 3305(Furthermore, the)1 765 2 970 1756 t
+( either the)2 469( time to initialize things is at the beginning, so)9 2150( The)1 230(the lack of a static storage class.)6 1471 4 720 1876 t
+( itself begins with a lot of initialization code, or it calls one or more routines to do)17 3739(main routine)1 581 2 720 1996 t
+( must be visible, which means in effect)7 1712( either case, variables to be initialized)6 1668( In)1 145(the initializations.)1 795 4 720 2116 t
+( result is that any variable that is to be initialized has glo-)12 2522( The)1 217(at the highest level of the hierarchy.)6 1581 3 720 2236 t
+(bal scope.)1 433 1 720 2356 t
+( two routines to share a variable unless it is)9 1996(The third difficulty is that there is no way for)9 2074 2 970 2512 t
+( Fortran)1 389( or above their least common ancestor.)6 1744(declared at)1 497 3 720 2632 t
+8 PA f
+(COMMON)3377 2632 w
+10 PA f
+(and C's external static stor-)4 1230 1 3810 2632 t
+( both provide a way for two routines to cooperate privately, without sharing informa-)13 3925(age class)1 395 2 720 2752 t
+(tion with their ancestors.)3 1098 1 720 2872 t
+( initialization or non-hierarchical commu-)4 1879(The new standard does not offer static variables,)7 2191 2 970 3028 t
+(nication.)720 3148 w
+10 PB f
+( program components must be kept separate)6 2015(2.3. Related)1 549 2 720 3388 t
+10 PA f
+( one-pass compiler, the language believes)5 1857(Since the original Pascal was implemented with a)7 2213 2 970 3544 t
+( be declared)2 574( particular, procedures and functions must)5 1992( In)1 163(strongly in declaration before use.)4 1591 4 720 3664 t
+( a typical Pascal program reads from the)7 1863( result is that)3 602( The)1 227(\(body and all\) before they are used.)6 1628 4 720 3784 t
+( of the code that calls)5 998(bottom up \320 all the procedures and functions are displayed before any)11 3322 2 720 3904 t
+( are designed)2 611( is essentially opposite to the order in which the functions)10 2638( This)1 249(them, at all levels.)3 822 4 720 4024 t
+(and used.)1 430 1 720 4144 t
+( extent this can be mitigated by a mechanism like the)10 2413(To some)1 381 2 970 4300 t
+10 CW f
+(#include)3797 4300 w
+10 PA f
+(facility of C and)3 730 1 4310 4300 t
+( included where needed without cluttering up the program.)8 2653(Ratfor: source files can be)4 1136 2 720 4420 t
+10 CW f
+(#include)4560 4420 w
+10 PA f
+(is not part of standard Pascal, although the UCB, VU and Whitesmiths compilers all provide it.)15 4189 1 720 4540 t
+(There is also a)3 636 1 970 4696 t
+10 CW f
+(forward)1634 4696 w
+10 PA f
+( the declaration of the)4 979(declaration in Pascal that permits separating)5 1979 2 2082 4696 t
+( header from the body; it is intended for defining mutually recursive proce-)12 3345(function or procedure)2 975 2 720 4816 t
+( the)1 172( the body is declared later on, the header on that declaration may contain only)14 3551(dures. When)1 597 3 720 4936 t
+(function name, and must not repeat the information from the first instance.)11 3317 1 720 5056 t
+( declara-)1 391(A related problem is that Pascal has a strict order in which it is willing to accept)16 3679 2 970 5212 t
+( procedure or function consists of)5 1479(tions. Each)1 505 2 720 5332 t
+9 CW f
+(label)1008 5502 w
+9 PI f
+(label declarations, if any)3 880 1 1440 5502 t
+9 CW f
+(const)1008 5612 w
+9 PI f
+(constant declarations, if any)3 1026 1 1440 5612 t
+9 CW f
+(type)1008 5722 w
+9 PI f
+(type declarations, if any)3 869 1 1440 5722 t
+9 CW f
+(var)1008 5832 w
+9 PI f
+(variable declarations, if any)3 1000 1 1440 5832 t
+9 CW f
+(procedure)1008 5942 w
+9 PI f
+(and)1548 5942 w
+9 CW f
+(function)1737 5942 w
+9 PI f
+(declarations, if any)2 691 1 2223 5942 t
+9 CW f
+(begin)1008 6052 w
+9 PI f
+(body of function or procedure)4 1067 1 1440 6162 t
+9 CW f
+(end)1008 6272 w
+10 PA f
+( must be grouped together for the)6 1500(This means that all declarations of one kind \(types, for instance\))10 2820 2 720 6452 t
+( the programmer would like to keep together things that)9 2527(convenience of the compiler, even when)5 1793 2 720 6572 t
+( a program has to be presented)6 1380( Since)1 284(are logically related so as to understand the program better.)9 2656 3 720 6692 t
+( of)1 122(to the compiler all at once, it is rarely possible to keep the declaration, initialization and use)16 4198 2 720 6812 t
+( some of the most dedicated Pascal supporters agree:)8 2335( Even)1 273(types and variables close together.)4 1521 3 720 6932 t
+8 PA f
+(14)4849 6900 w
+10 PA f
+(``The inability to make such groupings in structuring large programs is one of Pascal's)13 3820 1 970 7088 t
+(most frustrating limitations.'')2 1298 1 970 7208 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 5 7
+%%Page: 6 8
+/saveobj save def
+mark
+8 pagesetup
+10 PA f
+(- 6 -)2 166 1 2797 480 t
+(A file inclusion facility helps only a little here.)8 2029 1 720 840 t
+(The new standard does not relax the requirements on the order of declarations.)12 3499 1 970 996 t
+10 PB f
+( is no separate compilation)4 1220(2.4. There)1 467 2 720 1236 t
+10 PA f
+( provide separate compilation, and so each imple-)7 2280(The ``official'' Pascal language does not)5 1790 2 970 1392 t
+( \(the Berkeley interpreter, for instance\) disallow it)7 2198( Some)1 294( its own what to do.)5 878(mentation decides on)2 950 4 720 1512 t
+( others)1 310( Many)1 318( and matches the letter exactly.)5 1409(entirely; this is closest to the spirit of the language)9 2283 4 720 1632 t
+( any case,)2 429( In)1 145( defined.)1 391(provide a declaration that specifies that the body of a function is externally)12 3355 4 720 1752 t
+(all such mechanisms are non-standard, and thus done differently by different systems.)11 3818 1 720 1872 t
+( very fast \(and)3 641(Theoretically, there is no need for separate compilation \320 if one's compiler is)12 3429 2 970 2028 t
+( routines is always available and if one's compiler has a file inclusion facility so)14 3490(if the source for all)4 830 2 720 2148 t
+( practice,)1 403( In)1 146(that multiple copies of source are not needed\), recompiling everything is equivalent.)11 3771 3 720 2268 t
+( hidden and file inclusion is not)6 1466(of course, compilers are never fast enough and source is often)10 2854 2 720 2388 t
+(part of the language, so changes are time-consuming.)7 2354 1 720 2508 t
+( validate consistency of types across)5 1635(Some systems permit separate compilation but do not)7 2435 2 970 2664 t
+( other languages do no cross-)5 1308( \(Most)1 311( typing.)1 345( creates a giant hole in the strong)7 1484( This)1 244(the boundary.)1 628 6 720 2784 t
+( seen at least one)4 810( have)1 253( I)1 100(compilation checking either, so Pascal is not inferior in this respect.\))10 3157 4 720 2904 t
+(paper \(mercifully unpublished\) that on page)5 1986 1 720 3024 t
+10 PI f
+(n)2735 3024 w
+10 PA f
+( to check types across sepa-)5 1223(castigates C for failing)3 997 2 2820 3024 t
+(rate compilation boundaries while suggesting on page)6 2427 1 720 3144 t
+10 PI f
+(n)3176 3144 w
+10 PA f
+( is to)2 219(+1 that the way to cope with Pascal)7 1589 2 3232 3144 t
+(compile procedures separately to avoid type checking.)6 2411 1 720 3264 t
+(The new standard does not offer separate compilation.)7 2413 1 970 3420 t
+10 PB f
+( miscellaneous problems of type and scope)6 1953(2.5. Some)1 456 2 720 3660 t
+10 PA f
+(Most of the following points are minor irritations, but I have to stick them in somewhere.)15 3937 1 970 3816 t
+( non-basic type as the literal formal parameter of a procedure; the)11 2994(It is not legal to name a)6 1076 2 970 3972 t
+(following is not allowed:)3 1099 1 720 4092 t
+9 CW f
+(procedure add10 \(var a : array [1..10] of integer\);)8 2754 1 1008 4262 t
+10 PA f
+( declaration, and declare the formal parameter)6 2076(Rather, one must invent a type name, make a type)9 2244 2 720 4442 t
+(to be an instance of that type:)6 1295 1 720 4562 t
+9 CW f
+( = array [1..10] of integer;)5 1512(type a10)1 594 2 1008 4732 t
+(...)1008 4842 w
+(procedure add10 \(var a : a10\);)5 1620 1 1008 4952 t
+10 PA f
+( disci-)1 268( The)1 221(Naturally the type declaration is physically separated from the procedure that uses it.)12 3831 3 720 5132 t
+( types that are used often, but it is a distraction for)11 2332(pline of inventing type names is helpful for)7 1988 2 720 5252 t
+(things used only once.)3 990 1 720 5372 t
+(It is nice to have the declaration)6 1403 1 970 5528 t
+10 CW f
+(var)2399 5528 w
+10 PA f
+(for formal parameters of functions and procedures; the)7 2435 1 2605 5528 t
+( the calling program has no)5 1246( But)1 211( it intends to modify the argument.)6 1590(procedure clearly states that)3 1273 4 720 5648 t
+( in one place, while two)5 1062(way to declare that a variable is to be modified \320 the information is only)14 3258 2 720 5768 t
+( the user nothing)3 766( a loaf is better than none, though \320 Fortran tells)10 2231( \(Half)1 284(places would be better.)3 1039 4 720 5888 t
+(about who will do what to variables.\))6 1654 1 720 6008 t
+( the net effect is that)5 927(It is also a minor bother that arrays are passed by value by default \320)14 3143 2 970 6164 t
+(every array parameter is declared)4 1517 1 720 6284 t
+10 CW f
+(var)2268 6284 w
+10 PA f
+( the)1 169( If)1 122( without thinking.)2 813(by the programmer more or less)5 1457 4 2479 6284 t
+10 CW f
+(var)720 6404 w
+10 PA f
+(declaration is inadvertently omitted, the resulting bug is subtle.)8 2807 1 925 6404 t
+(Pascal's)970 6560 w
+10 CW f
+(set)1346 6560 w
+10 PA f
+( and some)2 466(construct seems like a good idea, providing notational convenience)8 3017 2 1557 6560 t
+( example, a set of tests like)6 1171( For)1 201(free type checking.)2 834 3 720 6680 t
+9 CW f
+(if \(c = blank\) or \(c = tab\) or \(c = newline\) then ...)13 2862 1 1008 6850 t
+10 PA f
+(can be written rather more clearly and perhaps more efficiently as)10 2915 1 720 7030 t
+9 CW f
+(if c in [blank, tab, newline] then ...)7 2052 1 1008 7200 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 6 8
+%%Page: 7 9
+/saveobj save def
+mark
+9 pagesetup
+10 PA f
+(- 7 -)2 166 1 2797 480 t
+( this, because the size of a set is)8 1518(But in practice, set types are not useful for much more than)11 2802 2 720 840 t
+( dependent \(probably because it was so in the original CDC implementa-)11 3219(strongly implementation)1 1101 2 720 960 t
+( example, it is natural to attempt to write the function)10 2436( For)1 208( bits\).)1 249(tion: 59)1 331 4 720 1080 t
+10 CW f
+(isalphanum\(c\))3976 1080 w
+10 PA f
+(\(``is)4788 1080 w
+10 CW f
+(c)4980 1080 w
+10 PA f
+(alphanumeric?''\) as)1 864 1 720 1200 t
+9 CW f
+({ isalphanum\(c\) -- true if c is letter or digit })10 2646 1 1008 1370 t
+(function isalphanum \(c : char\) : boolean;)6 2214 1 1008 1480 t
+(begin)1008 1590 w
+(isalphanum := c in ['a'..'z', 'A'..'Z', '0'..'9'])6 2646 1 1440 1700 t
+(end;)1008 1810 w
+10 PA f
+( fails because sets are just)5 1121(But in many implementations of Pascal \(including the original\) this code)10 3199 2 720 1990 t
+( left unused if one intends to write portable pro-)9 2209( sets are generally best)4 1035( Accordingly,)1 635(too small.)1 441 4 720 2110 t
+( with a range)3 592( specific routine also runs an order of magnitude slower with sets than)12 3151(grams. \(This)1 577 3 720 2230 t
+(test or array reference.\))3 1027 1 720 2350 t
+10 PB f
+( is no escape)3 568(2.6. There)1 467 2 720 2590 t
+10 PA f
+( the)1 169(There is no way to override the type mechanism when necessary, nothing analogous to)13 3901 2 970 2746 t
+( like storage alloca-)3 869( means that it is not possible to write programs)9 2139( This)1 247(``cast'' mechanism in C.)3 1065 4 720 2866 t
+( to talk about the type of object that they)9 1866(tors or I/O systems in Pascal, because there is no way)10 2454 2 720 2986 t
+( speaking,)1 450( \(Strictly)1 401(return, and no way to force such objects into an arbitrary type for another use.)14 3469 3 720 3106 t
+( in the type-checking near variant records, through which some otherwise)10 3407(there is a large hole)4 913 2 720 3226 t
+(illegal type mismatches can be obtained.\))5 1816 1 720 3346 t
+10 PB f
+( Flow)1 253(3. Control)1 475 2 720 3586 t
+10 PA f
+( of Pascal are minor but numerous \320 the death of a thousand)12 2786(The control flow deficiencies)3 1284 2 970 3742 t
+(cuts, rather than a single blow to a vital spot.)9 1981 1 720 3862 t
+(There is no guaranteed order of evaluation of the logical operators)10 2995 1 970 4018 t
+10 CW f
+(and)3996 4018 w
+10 PA f
+(and)4208 4018 w
+10 CW f
+(or)4409 4018 w
+10 PA f
+(\320 nothing)1 479 1 4561 4018 t
+(like)720 4138 w
+10 CW f
+(&&)911 4138 w
+10 PA f
+(and)1060 4138 w
+10 CW f
+(||)1257 4138 w
+10 PA f
+( failing, which is shared with most other languages, hurts most often in)12 3181( This)1 243(in C.)1 211 3 1405 4138 t
+(loop control:)1 563 1 720 4258 t
+9 CW f
+(while \(i <= XMAX\) and \(x[i] > 0\) do ...)9 2106 1 1008 4428 t
+10 PA f
+(is extremely unwise Pascal usage, since there is no way to ensure that)12 3068 1 720 4608 t
+10 CW f
+(i)3813 4608 w
+10 PA f
+(is tested before)2 665 1 3898 4608 t
+10 CW f
+(x[i])4588 4608 w
+10 PA f
+(is.)4853 4608 w
+( the parentheses in this code are mandatory \320 the language has only four levels)14 3550(By the way,)2 520 2 970 4764 t
+(of operator precedence, with relationals at the bottom.)7 2400 1 720 4884 t
+(There is no)2 489 1 970 5040 t
+10 CW f
+(break)1484 5040 w
+10 PA f
+( entry-one exit)2 643( is consistent with the one)5 1141( This)1 240(statement for exiting loops.)3 1207 4 1809 5040 t
+( structured programming, but it does lead to nasty cir-)9 2534(philosophy espoused by proponents of)4 1786 2 720 5160 t
+( the inability to control the)5 1278(cumlocutions or duplicated code, particularly when coupled with)7 3042 2 720 5280 t
+( this common situation, expressed in)5 1652( Consider)1 461(order in which logical expressions are evaluated.)6 2207 3 720 5400 t
+(C or Ratfor:)2 519 1 720 5520 t
+9 CW f
+(while \(getnext\(...\)\) {)2 1188 1 1008 5690 t
+(if \(something\))1 756 1 1440 5800 t
+(break)1872 5910 w
+(rest of loop)2 648 1 1440 6020 t
+(})1008 6130 w
+10 PA f
+(With no)1 358 1 720 6310 t
+10 CW f
+(break)1103 6310 w
+10 PA f
+(statement, the first attempt in Pascal is)6 1702 1 1428 6310 t
+9 CW f
+(done := false;)2 756 1 1008 6480 t
+(while \(not done\) and \(getnext\(...\)\) do)5 2052 1 1008 6590 t
+(if something then)2 918 1 1440 6700 t
+(done := true)2 648 1 1872 6810 t
+(else begin)1 540 1 1440 6920 t
+(rest of loop)2 648 1 1872 7030 t
+(end)1440 7140 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 7 9
+%%Page: 8 10
+/saveobj save def
+mark
+10 pagesetup
+10 PA f
+(- 8 -)2 166 1 2797 480 t
+(But this doesn't work, because there is no way to force the ``)12 2650 1 720 840 t
+10 CW f
+(not done)1 445 1 3370 840 t
+10 PA f
+('' to be evaluated before the)5 1225 1 3815 840 t
+(next call of)2 481 1 720 960 t
+10 CW f
+(getnext)1226 960 w
+10 PA f
+( leads, after several false starts, to)6 1477(. This)1 265 2 1646 960 t
+9 CW f
+(done := false;)2 756 1 1008 1130 t
+(while not done do begin)4 1242 1 1008 1240 t
+(done := getnext\(...\);)2 1134 1 1440 1350 t
+(if something then)2 918 1 1440 1460 t
+(done := true)2 648 1 1872 1570 t
+(else if not done then begin)5 1458 1 1440 1680 t
+(rest of loop)2 648 1 1872 1790 t
+(end)1440 1900 w
+(end)1008 2010 w
+10 PA f
+(Of course recidivists can use a)5 1346 1 720 2190 t
+10 CW f
+(goto)2094 2190 w
+10 PA f
+(and a label \(numeric only and it has to be declared\) to exit a)13 2678 1 2362 2190 t
+( exits are a pain, almost always requiring the invention of a boolean vari-)13 3299( early)1 255(loop. Otherwise,)1 766 3 720 2310 t
+( finding the last non-blank in an array in Ratfor:)9 2115( Compare)1 462(able and a certain amount of cunning.)6 1673 3 720 2430 t
+9 CW f
+(for \(i = max; i > 0; i = i - 1\))11 1674 1 1008 2600 t
+(if \(arr\(i\) != ' '\))4 972 1 1440 2710 t
+(break)1872 2820 w
+10 PA f
+(with Pascal:)1 528 1 720 3000 t
+9 CW f
+(done := false;)2 756 1 1008 3170 t
+(i := max;)2 486 1 1008 3280 t
+(while \(i > 0\) and \(not done\) do)7 1674 1 1008 3390 t
+(if arr[i] = ' ' then)5 1080 1 1440 3500 t
+(i := i - 1)4 540 1 1872 3610 t
+(else)1440 3720 w
+(done := true;)2 702 1 1872 3830 t
+10 PA f
+( a)1 88(The index of)2 577 2 970 4046 t
+10 CW f
+(for)1673 4046 w
+10 PA f
+(loop is undefined outside the loop, so it is not possible to figure out)13 3149 1 1891 4046 t
+( increment of a)3 674( The)1 222(whether one went to the end or not.)7 1621 3 720 4166 t
+10 CW f
+(for)3267 4166 w
+10 PA f
+(loop can only be)3 739 1 3476 4166 t
+10 CW f
+(+1)4244 4166 w
+10 PA f
+(or)4393 4166 w
+10 CW f
+(-1)4517 4166 w
+10 PA f
+(, a minor)2 403 1 4637 4166 t
+(restriction.)720 4286 w
+(There is no)2 539 1 970 4442 t
+10 CW f
+(return)1559 4442 w
+10 PA f
+( function value is)3 837( A)1 154( reasons.)1 411(statement, again for one in-one out)5 1669 4 1969 4442 t
+( a pseudo-variable \(as in Fortran\), then falling off the end of the)12 2887(returned by setting the value of)5 1433 2 720 4562 t
+( make sure that all paths actually get to the end)10 2149( sometimes leads to contortions to)5 1531(function. This)1 640 3 720 4682 t
+( execution)1 469( is also no standard way to terminate)7 1760( There)1 323(of the function with the proper value.)6 1768 4 720 4802 t
+( the end of the outermost block, although many implementations provide a)11 3467(except by reaching)2 853 2 720 4922 t
+10 CW f
+(halt)720 5042 w
+10 PA f
+(that causes immediate termination.)3 1555 1 985 5042 t
+(The)970 5198 w
+10 CW f
+(case)1163 5198 w
+10 PA f
+(statement is better designed than in C,)6 1702 1 1429 5198 t
+10 PI f
+(except)3157 5198 w
+10 PA f
+(that there is no)3 663 1 3435 5198 t
+10 CW f
+(default)4124 5198 w
+10 PA f
+(clause and)1 469 1 4571 5198 t
+( crucial)1 331( This)1 250( any of the cases.)4 782(the behavior is undefined if the input expression does not match)10 2957 4 720 5318 t
+(omission renders the)2 948 1 720 5438 t
+10 CW f
+(case)1705 5438 w
+10 PA f
+( over 6000 lines of Pascal in)6 1277( In)1 154(construct almost worthless.)2 1235 3 1982 5438 t
+10 PI f
+(Software)4685 5438 w
+(Tools in Pascal)2 629 1 720 5558 t
+10 PA f
+( had been a)3 533(, I used it only four times, although if there)9 1995 2 1349 5558 t
+10 CW f
+(default)3912 5558 w
+10 PA f
+(, a)1 110 1 4332 5558 t
+10 CW f
+(case)4477 5558 w
+10 PA f
+(would)4752 5558 w
+(have served in at least a dozen places.)7 1674 1 720 5678 t
+(The new standard offers no relief on any of these points.)10 2488 1 970 5834 t
+10 PB f
+( Environment)1 625(4. The)1 303 2 720 6074 t
+10 PA f
+( is no extension mechanism)4 1236(The Pascal run-time environment is relatively sparse, and there)8 2834 2 970 6230 t
+(except perhaps source-level libraries in the ``official'' language.)7 2784 1 720 6350 t
+( believes strongly in record-)4 1352( It)1 147( bad reputation.)2 767(Pascal's built-in I/O has a deservedly)5 1804 4 970 6506 t
+( has a look-ahead convention that is hard to implement prop-)10 2780( also)1 209( It)1 125(oriented input and output.)3 1206 4 720 6626 t
+( the problem is that the I/O system believes that it)10 2292( Basically,)1 472(erly in an interactive environment.)4 1556 3 720 6746 t
+( an interactive system, this)4 1200( In)1 149( processed.)1 497(must read one record ahead of the record that is being)10 2474 4 720 6866 t
+( program is started, its first operation is to try to read the terminal for the first)16 3482(means that when a)3 838 2 720 6986 t
+( in the program)3 690( But)1 204(line of input, before any of the program itself has been executed.)11 2843 3 720 7106 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 8 10
+%%Page: 9 11
+/saveobj save def
+mark
+11 pagesetup
+10 PA f
+(- 9 -)2 166 1 2797 480 t
+9 CW f
+(write\('Please enter your name: '\);)4 1836 1 1008 830 t
+(read\(name\);)1008 940 w
+(...)1008 1050 w
+10 PA f
+( waiting for input before printing the prompt that asks)9 2502(read-ahead causes the program to hang,)5 1818 2 720 1230 t
+(for it.)1 240 1 720 1350 t
+( escape most of the evil effects of this I/O design by very careful implemen-)14 3400(It is possible to)3 670 2 970 1506 t
+(tation, but not all Pascal systems do so, and in any case it is relatively costly.)15 3363 1 720 1626 t
+( original operating system upon which Pascal was designed;)8 2811(The I/O design reflects the)4 1259 2 970 1782 t
+( though not its defects.)4 1008(even Wirth acknowledges that bias,)4 1583 2 720 1902 t
+8 PA f
+(15)3311 1870 w
+10 PA f
+(It is assumed that text files consist of)7 1623 1 3417 1902 t
+( of a line is read, the built-in function)8 1680( the last character)3 790( When)1 319(records, that is, lines of text.)5 1260 4 720 2022 t
+10 CW f
+(eoln)4800 2022 w
+10 PA f
+(becomes true; at that point, one must call)7 1863 1 720 2142 t
+10 CW f
+(readln)2614 2142 w
+10 PA f
+(to initiate reading a new line and reset)7 1739 1 3005 2142 t
+10 CW f
+(eoln)4775 2142 w
+10 PA f
+(.)5015 2142 w
+( the built-in)2 523(Similarly, when the last character of the file is read,)9 2288 2 720 2262 t
+10 CW f
+(eof)3560 2262 w
+10 PA f
+( both cases,)2 510( In)1 146(becomes true.)1 615 3 3769 2262 t
+10 CW f
+(eoln)720 2382 w
+10 PA f
+(and)985 2382 w
+10 CW f
+(eof)1179 2382 w
+10 PA f
+(must be tested before each)4 1170 1 1384 2382 t
+10 CW f
+(read)2579 2382 w
+10 PA f
+(rather than after.)2 747 1 2844 2382 t
+( implementa-)1 597( This)1 247(Given this, considerable pains must be taken to simulate sensible input.)10 3226 3 970 2538 t
+(tion of)1 290 1 720 2658 t
+10 CW f
+(getc)1037 2658 w
+10 PA f
+( systems, but may not necessarily work for anything)8 2318(works for Berkeley and VU I/O)5 1418 2 1304 2658 t
+(else:)720 2778 w
+9 CW f
+({ getc -- read character from standard input })8 2484 1 1008 2948 t
+(function getc \(var c : character\) : character;)7 2484 1 1008 3058 t
+(var)1008 3168 w
+(ch : char;)2 540 1 1440 3278 t
+(begin)1008 3388 w
+(if eof then)2 594 1 1440 3498 t
+(c := ENDFILE)2 648 1 1872 3608 t
+(else if eoln then begin)4 1242 1 1440 3718 t
+(readln;)1872 3828 w
+(c := NEWLINE)2 648 1 1872 3938 t
+(end)1440 4048 w
+(else begin)1 540 1 1440 4158 t
+(read\(ch\);)1872 4268 w
+(c := ord\(ch\))2 648 1 1872 4378 t
+(end;)1440 4488 w
+(getc := c)2 486 1 1440 4598 t
+(end;)1008 4708 w
+10 PA f
+(The type)1 404 1 720 4888 t
+10 CW f
+(character)1164 4888 w
+10 PA f
+(is not the same as)4 836 1 1744 4888 t
+10 CW f
+(char)2620 4888 w
+10 PA f
+(, since)1 286 1 2860 4888 t
+10 CW f
+(ENDFILE)3186 4888 w
+10 PA f
+(and perhaps)1 567 1 3646 4888 t
+10 CW f
+(NEWLINE)4254 4888 w
+10 PA f
+(are not)1 325 1 4715 4888 t
+(legal values for a)3 750 1 720 5008 t
+10 CW f
+(char)1495 5008 w
+10 PA f
+(variable.)1760 5008 w
+( notion at all of access to a file system except for predefined files named by \(in)16 3567(There is no)2 503 2 970 5164 t
+(effect\) logical unit number in the)5 1464 1 720 5284 t
+10 CW f
+(program)2213 5284 w
+10 PA f
+( apparently)1 512( This)1 243( each program.)2 670(statement that begins)2 953 4 2662 5284 t
+( file variable)2 546( A)1 128(reflects the CDC batch system in which Pascal was originally developed.)10 3205 3 720 5404 t
+9 CW f
+( : file of)3 540(var fv)1 540 2 1008 5574 t
+9 PI f
+(type)2142 5574 w
+10 PA f
+( to, nor used except by calls to built-in pro-)9 1912(is a very special kind of object \320 it cannot be assigned)11 2408 2 720 5754 t
+(cedures like)1 533 1 720 5874 t
+10 CW f
+(eof)1281 5874 w
+10 PA f
+(,)1461 5874 w
+10 CW f
+(eoln)1514 5874 w
+10 PA f
+(,)1754 5874 w
+10 CW f
+(read)1807 5874 w
+10 PA f
+(,)2047 5874 w
+10 CW f
+(write)2100 5874 w
+10 PA f
+(,)2400 5874 w
+10 CW f
+(reset)2453 5874 w
+10 PA f
+(and)2781 5874 w
+10 CW f
+(rewrite)2978 5874 w
+10 PA f
+(. \()1 111 1 3398 5874 t
+10 CW f
+(reset)3509 5874 w
+10 PA f
+( makes it)2 400(rewinds a file and)3 803 2 3837 5874 t
+(ready for re-reading;)2 921 1 720 5994 t
+10 CW f
+(rewrite)1666 5994 w
+10 PA f
+(makes a file ready for writing.\))5 1367 1 2111 5994 t
+( an escape hatch to allow access to files by name)10 2241(Most implementations of Pascal provide)4 1829 2 970 6150 t
+( example, many sys-)3 906( For)1 203( but not conveniently and not standardly.)6 1848(from the outside environment,)3 1363 4 720 6270 t
+(tems permit a filename argument in calls to)7 1919 1 720 6390 t
+10 CW f
+(reset)2664 6390 w
+10 PA f
+(and)2989 6390 w
+10 CW f
+(rewrite)3183 6390 w
+10 PA f
+(:)3603 6390 w
+9 CW f
+(reset\(fv, filename\);)1 1080 1 1008 6560 t
+10 PA f
+(But)720 6740 w
+10 CW f
+(reset)900 6740 w
+10 PA f
+(and)1226 6740 w
+10 CW f
+(rewrite)1421 6740 w
+10 PA f
+( no status return and no way to)7 1400(are procedures, not functions \320 there is)6 1773 2 1867 6740 t
+( provides a compile-time flag)4 1309( \(UCSD)1 366( for some reason the attempted access fails.)7 1928(regain control if)2 717 4 720 6860 t
+( since)1 246( And)1 247(that disables the normal abort.\))4 1380 3 720 6980 t
+10 CW f
+(fv)2618 6980 w
+10 PA f
+('s cannot appear in expressions like)5 1566 1 2738 6980 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 9 11
+%%Page: 10 12
+/saveobj save def
+mark
+12 pagesetup
+10 PA f
+(- 10 -)2 216 1 2772 480 t
+9 CW f
+(reset\(fv, filename\);)1 1080 1 1008 830 t
+(if fv = failure then ...)5 1296 1 1008 940 t
+10 PA f
+( makes it essentially impossible to)5 1595( straitjacket)1 524( This)1 258(there is no escape in that direction either.)7 1943 4 720 1120 t
+( adequately in the)3 804( never solved it)3 693( I)1 89(write programs that recover from mis-spelled file names, etc.)8 2734 4 720 1240 t
+10 PI f
+(Tools)720 1360 w
+10 PA f
+(revision.)961 1360 w
+( reflecting Pascal's)2 823(There is no notion of access to command-line arguments, again probably)10 3247 2 970 1516 t
+( to the)2 285( routines may allow it by adding non-standard procedures)8 2630( Local)1 294(batch-processing origins.)1 1111 4 720 1636 t
+(environment.)720 1756 w
+( allocator in Pascal \(there being no)6 1534(Since it is not possible to write a general-purpose storage)9 2536 2 970 1912 t
+( return\), the language has a built-in proce-)7 1878(way to talk about the types that such a function would)10 2442 2 720 2032 t
+(dure called)1 504 1 720 2152 t
+10 CW f
+(new)1258 2152 w
+10 PA f
+( defined types may be allocated, so it is)8 1808( Only)1 282( from a heap.)3 612(that allocates space)2 866 4 1472 2152 t
+( point-)1 296( The)1 220( example, arrays of arbitrary size to hold character strings.)9 2603(not possible to allocate, for)4 1201 4 720 2272 t
+(ers returned by)2 693 1 720 2392 t
+10 CW f
+(new)1445 2392 w
+10 PA f
+(may be passed around but not manipulated: there is no pointer arithmetic.)11 3383 1 1657 2392 t
+(There is no way to regain control if storage runs out.)10 2320 1 720 2512 t
+(The new standard offers no change in any of these areas.)10 2502 1 970 2668 t
+10 PB f
+( Issues)1 307(5. Cosmetic)1 546 2 720 2908 t
+10 PA f
+( to an experienced programmer, and some are probably a)9 2609(Most of these issues are irksome)5 1461 2 970 3064 t
+( can be lived with.)4 806( All)1 186(nuisance even to beginners.)3 1221 3 720 3184 t
+( Algol-inspired languages, uses the semicolon as a state-)8 2505(Pascal, in common with most other)5 1565 2 970 3340 t
+( a result one must have a rea-)7 1315( As)1 173(ment separator rather than a terminator \(as it is in PL/I and C\).)12 2832 3 720 3460 t
+( more)1 259( Perhaps)1 411(sonably sophisticated notion of what a statement is to put semicolons in properly.)12 3650 3 720 3580 t
+( one is serious about using them in the proper places, a fair amount of nuisance edit-)16 3759(important, if)1 561 2 720 3700 t
+( the first cut at a program:)6 1150( Consider)1 454(ing is needed.)2 613 3 720 3820 t
+9 CW f
+(if a then)2 486 1 1008 3990 t
+(b;)1440 4100 w
+(c;)1008 4210 w
+10 PA f
+(But if something must be inserted before)6 1845 1 720 4390 t
+10 CW f
+(b)2598 4390 w
+10 PA f
+(, it no longer needs a semicolon, because it now pre-)10 2382 1 2658 4390 t
+(cedes an)1 376 1 720 4510 t
+10 CW f
+(end)1121 4510 w
+10 PA f
+(:)1301 4510 w
+9 CW f
+(if a then begin)3 810 1 1008 4680 t
+(b0;)1440 4790 w
+(b)1440 4900 w
+(end;)1008 5010 w
+(c;)1008 5120 w
+10 PA f
+(Now if we add an)4 794 1 720 5300 t
+10 CW f
+(else)1539 5300 w
+10 PA f
+(, we)1 181 1 1779 5300 t
+10 PI f
+(must)1985 5300 w
+10 PA f
+(remove the semicolon on the)4 1274 1 2216 5300 t
+10 CW f
+(end)3515 5300 w
+10 PA f
+(:)3695 5300 w
+9 CW f
+(if a then begin)3 810 1 1008 5470 t
+(b0;)1440 5580 w
+(b)1440 5690 w
+(end)1008 5800 w
+(else)1008 5910 w
+(d;)1440 6020 w
+(c;)1008 6130 w
+10 PA f
+(And so on and so on, with semicolons rippling up and down the program as it evolves.)16 3852 1 720 6310 t
+( that semicolon as)3 798(One generally accepted experimental result in programmer psychology is)8 3272 2 970 6466 t
+( as terminator.)2 659(separator is about ten times more prone to error than semicolon)10 2921 2 720 6586 t
+8 PA f
+(16)4300 6554 w
+10 PA f
+(\(In Ada,)1 373 1 4414 6586 t
+8 PA f
+(17)4787 6554 w
+10 PA f
+(the)4901 6586 w
+( in Pascal one)3 610( Fortunately,)1 597( Pascal, semicolon is a terminator.\))5 1546(most significant language based on)4 1567 4 720 6706 t
+( excep-)1 319( The)1 226( semicolon as a terminator.)4 1225(can almost always close one's eyes and get away with a)10 2550 4 720 6826 t
+( declarations, where the separator vs. terminator problem doesn't seem as)10 3323(tions are in places like)4 997 2 720 6946 t
+(serious anyway, and just before)4 1400 1 720 7066 t
+10 CW f
+(else)2145 7066 w
+10 PA f
+(, which is easy to remember.)5 1257 1 2385 7066 t
+(C and Ratfor programmers find)4 1406 1 970 7222 t
+10 CW f
+(begin)2401 7222 w
+10 PA f
+(and)2726 7222 w
+10 CW f
+(end)2920 7222 w
+10 PA f
+(bulky compared to)2 840 1 3125 7222 t
+10 CW f
+({)3990 7222 w
+10 PA f
+(and)4075 7222 w
+10 CW f
+(})4269 7222 w
+10 PA f
+(.)4329 7222 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 10 12
+%%Page: 11 13
+/saveobj save def
+mark
+13 pagesetup
+10 PA f
+(- 11 -)2 216 1 2772 480 t
+(A function name by itself is a call of that function; there is no way to distinguish such a)18 4070 1 970 840 t
+( uses)1 225( Pascal)1 333( functions.)1 470(function call from a simple variable except by knowing the names of the)12 3292 4 720 960 t
+( like a variable within the function, except that)8 2116(the Fortran trick of having the function name act)8 2204 2 720 1080 t
+( variable, and can appear in expressions, in Pascal,)8 2258(where in Fortran the function name really is a)8 2062 2 720 1200 t
+( recursive invocation: if)3 1117(its appearance in an expression is a)6 1708 2 720 1320 t
+10 CW f
+(f)3597 1320 w
+10 PA f
+(is a zero-argument function,)3 1331 1 3709 1320 t
+10 CW f
+(f:=f+1)720 1440 w
+10 PA f
+(is a recursive call of)4 868 1 1105 1440 t
+10 CW f
+(f)1998 1440 w
+10 PA f
+(.)2058 1440 w
+( In)1 156( of precedence levels\).)3 1014(There is a paucity of operators \(probably related to the paucity)10 2900 3 970 1596 t
+(particular, there are no bit-manipulation operators \()6 2341 1 720 1716 t
+8 PA f
+(AND)3061 1716 w
+10 PA f
+(,)3251 1716 w
+8 PA f
+(OR)3304 1716 w
+10 PA f
+(,)3421 1716 w
+8 PA f
+(XOR)3474 1716 w
+10 PA f
+( trying)1 304( simply gave up)3 733( I)1 92(, etc.\).)1 266 4 3645 1716 t
+(to write the following trivial encryption program in Pascal:)8 2610 1 720 1836 t
+9 CW f
+(i := 1;)2 378 1 1008 2006 t
+(while getc\(c\) <> ENDFILE do begin)5 1782 1 1008 2116 t
+(putc\(xor\(c, key[i]\)\);)1 1134 1 1440 2226 t
+(i := i mod keylen + 1)6 1134 1 1440 2336 t
+(end)1008 2446 w
+10 PA f
+( sensible)1 383(because I couldn't write a)4 1156 2 720 2626 t
+10 CW f
+(xor)2291 2626 w
+10 PA f
+( set types help a bit here \(so to speak\), but)10 1918(function. The)1 619 2 2503 2626 t
+(not enough; people who claim that Pascal is a system programming language have generally)13 4320 1 720 2746 t
+( example, [18, p. 685])4 926( For)1 201(overlooked this point.)2 975 3 720 2866 t
+( public domain for pur-)4 1079(``Pascal is at the present time [1977] the best language in the)11 2741 2 970 3022 t
+(poses of system programming and software implementation.'')6 2754 1 970 3142 t
+(seems a bit naive.)3 776 1 720 3298 t
+( notation to indicate a)4 965(There is no null string, perhaps because Pascal uses the doubled quote)11 3105 2 970 3454 t
+(quote embedded in a string:)4 1242 1 720 3574 t
+9 CW f
+('This is a '' character')4 1296 1 1008 3744 t
+10 PA f
+( fact, non-graphic characters are)4 1489( In)1 161( to put non-graphic symbols into strings.)6 1913(There is no way)3 757 4 720 3924 t
+( sense, since they are not mentioned in any part of the standard language.)13 3267(unpersons in a stronger)3 1053 2 720 4044 t
+( each system in an)4 824(Concepts like newlines, tabs, and so on are handled on)9 2454 2 720 4164 t
+10 PI f
+(ad hoc)1 259 1 4028 4164 t
+10 PA f
+(manner, usually)1 723 1 4317 4164 t
+(by knowing something about the character set \(e.g., ASCII newline has decimal value 10\).)13 3955 1 720 4284 t
+( The)1 224( processor.)1 483(There is no macro)3 809 3 970 4440 t
+10 CW f
+(const)2518 4440 w
+10 PA f
+(mechanism for defining manifest constants takes)5 2190 1 2850 4440 t
+( about 95 percent of the uses of simple)8 1727(care of)1 301 2 720 4560 t
+10 CW f
+(#define)2778 4560 w
+10 PA f
+(statements in C, but more involved ones)6 1812 1 3228 4560 t
+( This)1 259( macro preprocessor on a Pascal compiler.)6 1971( is certainly possible to put a)6 1367( It)1 135(are hopeless.)1 588 5 720 4680 t
+(allowed me to simulate a sensible)5 1484 1 720 4800 t
+10 CW f
+(error)2229 4800 w
+10 PA f
+(procedure as)1 573 1 2554 4800 t
+9 CW f
+( writeln\(s\); halt end)3 1134(#define error\(s\) begin)2 1296 2 1008 4970 t
+10 PA f
+(\()720 5150 w
+10 CW f
+(halt)753 5150 w
+10 PA f
+( calls like)2 406( Then)1 275(in turn might be defined as a branch to the end of the outermost block.\))14 3152 3 1018 5150 t
+9 CW f
+(error\('little string'\);)1 1242 1 1440 5320 t
+(error\('much bigger string'\);)2 1512 1 1440 5430 t
+10 PA f
+(work since)1 483 1 720 5610 t
+10 CW f
+(writeln)1232 5610 w
+10 PA f
+(\(as part of the standard Pascal environment\) can handle strings of any size.)12 3359 1 1681 5610 t
+(It is unfortunate that there is no way to make this convenience available to routines in general.)16 4168 1 720 5730 t
+(The language prohibits expressions in declarations, so it is not possible to write things like)14 3987 1 970 5886 t
+9 CW f
+( = 10;)2 324(const SIZE)1 648 2 1008 6056 t
+( = array [1..SIZE+1] of integer;)5 1728(type arr)1 1026 2 1008 6166 t
+10 PA f
+(or even simpler ones like)4 1106 1 720 6346 t
+9 CW f
+( = 10;)2 324(const SIZE)1 648 2 1008 6516 t
+(SIZE1 = SIZE + 1;)4 918 1 1872 6626 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 11 13
+%%Page: 12 14
+/saveobj save def
+mark
+14 pagesetup
+10 PA f
+(- 12 -)2 216 1 2772 480 t
+10 PB f
+(6. Perspective)1 646 1 720 840 t
+10 PA f
+(The effort to rewrite the programs in)6 1661 1 970 996 t
+10 PI f
+(Software Tools)1 603 1 2663 996 t
+10 PA f
+(started in March, 1980, and, in fits and)7 1742 1 3298 996 t
+( final product)2 622( The)1 227(starts, lasted until January, 1981.)4 1474 3 720 1116 t
+8 PA f
+(19)3043 1084 w
+10 PA f
+( that)1 209( During)1 380(was published in June, 1981.)4 1293 3 3158 1116 t
+( to most of the superficial problems with Pascal \(cosmetics, the inade-)11 3189(time I gradually adapted)3 1131 2 720 1236 t
+( solutions to the significant ones \(array sizes,)7 2051(quacies of control flow\), and developed imperfect)6 2269 2 720 1356 t
+(run-time environment\).)1 1043 1 720 1476 t
+( be complete, well-engineered programs that do)6 2228(The programs in the book are meant to)7 1842 2 970 1632 t
+( efficient, nor are their interactions with the operat-)8 2307( they do not have to be)6 1052( But)1 211(non-trivial tasks.)1 750 4 720 1752 t
+( with some pretty kludgy solutions, ones that)7 2018(ing system very complicated, so I was able to get by)10 2302 2 720 1872 t
+(simply wouldn't work for real programs.)5 1821 1 720 1992 t
+( to C, but there are several)6 1262(There is no significant way in which I found Pascal superior)10 2808 2 970 2148 t
+( obvious by far is recursion: several pro-)7 1781( Most)1 276( over Ratfor.)2 554(places where it is a clear improvement)6 1709 4 720 2268 t
+( much cleaner when written recursively, notably the pattern-search, quicksort, and)10 3861(grams are)1 459 2 720 2388 t
+(expression evaluation.)1 992 1 720 2508 t
+( simultaneously delimit the range of legal)6 1915( They)1 286(Enumeration data types are a good idea.)6 1869 3 970 2664 t
+( relatively little use)3 853( found)1 296( I)1 88( help to group related variables.)5 1432( Records)1 411(values and document them.)3 1240 6 720 2784 t
+(for pointers.)1 543 1 720 2904 t
+( pro-)1 229(Boolean variables are nicer than integers for Boolean conditions; the original Ratfor)11 3841 2 970 3060 t
+( Fortran's logical variables are badly)5 1737(grams contained some unnatural constructions because)5 2583 2 720 3180 t
+(designed.)720 3300 w
+(Occasionally Pascal's type checking would warn of a slip of the hand in writing a program;)15 4070 1 970 3456 t
+( of values also indicated errors from time to time, particularly subscript)11 3317(the run-time checking)2 1003 2 720 3576 t
+(range violations.)1 738 1 720 3696 t
+( side, recompiling a large program from scratch to change a single)11 3007(Turning to the negative)3 1063 2 970 3852 t
+( is)1 116(line of source is extremely tiresome; separate compilation, with or without type checking,)12 4204 2 720 3972 t
+(mandatory for large programs.)3 1373 1 720 4092 t
+( For-)1 220(I derived little benefit from the fact that characters are part of Pascal and not part of)16 3850 2 970 4248 t
+( both lan-)2 457( In)1 160( and non-graphics is so inadequate.)5 1653(tran, because the Pascal treatment of strings)6 2050 4 720 4368 t
+(guages, it is appallingly clumsy to initialize literal strings for tables of keywords, error messages,)14 4320 1 720 4488 t
+(and the like.)2 545 1 720 4608 t
+( about the same number of source lines as their Ratfor)10 2420(The finished programs are in general)5 1650 2 970 4764 t
+( is a wordier and)4 766( first this surprised me, since my preconception was that Pascal)10 2853(equivalents. At)1 701 3 720 4884 t
+( expressions in)2 657( real reason seems to be that Pascal permits arbitrary)9 2335( The)1 218(less expressive language.)2 1110 4 720 5004 t
+( so)1 136(places like loop limits and subscripts where Fortran \(that is, portable Fortran 66\) does not,)14 4184 2 720 5124 t
+( assignments can be eliminated; furthermore, the Ratfor programs declare functions)10 3747(some useless)1 573 2 720 5244 t
+(while Pascal ones do not.)4 1112 1 720 5364 t
+(To close, let me summarize the main points in the case against Pascal.)12 3069 1 970 5640 t
+( an array is part of its type, it is not possible to write general-purpose rou-)15 3352( the size of)3 486(1. Since)1 482 3 720 5796 t
+( particular, string handling is very dif-)6 1706( In)1 144( sizes.)1 263(tines, that is, to deal with arrays of different)8 1957 4 970 5916 t
+(ficult.)970 6036 w
+( communicate non-hierarchically)2 1501( lack of static variables, initialization and a way to)9 2402(2. The)1 417 3 720 6192 t
+( scope than)2 506(combine to destroy the ``locality'' of a program \320 variables require much more)12 3564 2 970 6312 t
+(they ought to.)2 620 1 970 6432 t
+( and functions to be presented in an)7 1622( one-pass nature of the language forces procedures)7 2281(3. The)1 417 3 720 6588 t
+( scatters program compo-)3 1161(unnatural order; the enforced separation of various declarations)7 2909 2 970 6708 t
+(nents that logically belong together.)4 1587 1 970 6828 t
+( compilation impedes the development of large programs and makes)9 3157( lack of separate)3 746(4. The)1 417 3 720 6984 t
+(the use of libraries impossible.)4 1341 1 970 7104 t
+( logical expression evaluation cannot be controlled, which leads to convoluted)10 3511( order of)2 392(5. The)1 417 3 720 7260 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 12 14
+%%Page: 13 15
+/saveobj save def
+mark
+15 pagesetup
+10 PA f
+(- 13 -)2 216 1 2772 480 t
+(code and extraneous variables.)3 1362 1 970 840 t
+(6. The)1 417 1 720 996 t
+10 CW f
+(case)1162 996 w
+10 PA f
+(statement is emasculated because there is no default clause.)8 2627 1 1427 996 t
+( sensible provision for dealing with files or pro-)8 2157( is no)2 246( There)1 311( standard I/O is defective.)4 1189(7. The)1 417 5 720 1152 t
+(gram arguments as part of the standard language, and no extension mechanism.)11 3548 1 970 1272 t
+( assembling large programs, most notably)5 1900( language lacks most of the tools needed for)8 2003(8. The)1 417 3 720 1428 t
+(file inclusion.)1 593 1 970 1548 t
+( is no escape.)3 576(9. There)1 505 2 720 1704 t
+( language is inadequate but circum-)5 1682( The)1 237(This last point is perhaps the most important.)7 2151 3 970 1860 t
+( are no casts to disable the type-)7 1450( There)1 311( to escape its limitations.)4 1108(scribed, because there is no way)5 1451 4 720 1980 t
+( way to replace the defective run-time environment with a)9 2618( is no)2 242( There)1 309(checking when necessary.)2 1151 4 720 2100 t
+( lan-)1 203( The)1 225( one controls the compiler that defines the ``standard procedures.'')9 3008(sensible one, unless)2 884 4 720 2220 t
+(guage is closed.)2 695 1 720 2340 t
+( the language)2 602( Because)1 406(People who use Pascal for serious programming fall into a fatal trap.)11 3062 3 970 2496 t
+( each group extends Pascal in its own direction, to make)10 2517( But)1 208( it must be extended.)4 938(is so impotent,)2 657 4 720 2616 t
+( for separate compilation, Fortran-)4 1575( Extensions)1 541(it look like whatever language they really want.)7 2204 3 720 2736 t
+(like)720 2856 w
+8 PA f
+(COMMON)911 2856 w
+10 PA f
+( numbers, bit opera-)3 918(, string data types, internal static variables, initialization, octal)8 2810 2 1312 2856 t
+(tors, etc., all add to the utility of the language for one group, but destroy its portability to others.)18 4260 1 720 2976 t
+( its)1 138( In)1 151( target.)1 319(I feel that it is a mistake to use Pascal for anything much beyond its original)15 3462 4 970 3132 t
+(pure form, Pascal is a toy language, suitable for teaching but not for real programming.)14 3855 1 720 3252 t
+10 PB f
+(Acknowledgments)720 3492 w
+10 PA f
+( Narain Gehani, Bob Martin, Doug McIlroy, Rob Pike,)8 2488(I am grateful to Al Aho, Al Feuer,)7 1582 2 970 3648 t
+( Van Wyk and Charles Wetherell for helpful criticisms of earlier versions of)12 3375(Dennis Ritchie, Chris)2 945 2 720 3768 t
+(this paper.)1 470 1 720 3888 t
+9 PA f
+( \320 Part)2 311( A. R. and N. H. Gehani, ``A Comparison of the Programming Languages C and Pascal)15 3510(1. Feuer,)1 499 3 720 4137 t
+(I: Language Concepts,'' Bell Labs internal memorandum \(September 1979\).)8 2985 1 970 4242 t
+( the Programming Languages C and Pascal \320 Part)8 2065( H. Gehani and A. R. Feuer, ``A Comparison of)9 1907(2. N.)1 348 3 720 4383 t
+(II: Program Properties and Programming Domains,'' Bell Labs internal memorandum \(February)10 4070 1 970 4488 t
+(1980\).)970 4593 w
+( Mateti, ``Pascal versus C: A Subjective Comparison,'')7 2137(3. P.)1 327 2 720 4734 t
+9 PI f
+( Methodology)1 500(Language Design and Programming)3 1332 2 3208 4734 t
+(Symposium)970 4839 w
+9 PA f
+(, Springer-Verlag, Sydney, Australia \(September 1979\).)5 2181 1 1400 4839 t
+( ``A Comparison of Language C and Pascal,'' IBM Technical Report G320-2128, Cam-)12 3571( Springer,)1 406(4. A.)1 343 3 720 4980 t
+(bridge Scientific Center \(August 1979\).)4 1540 1 970 5085 t
+( W. Kernighan and P. J. Plauger,)6 1286(5. B.)1 328 2 720 5226 t
+9 PI f
+(Software Tools,)1 561 1 2357 5226 t
+9 PA f
+(Addison-Wesley, Reading, Mass. \(1976\).)3 1605 1 2941 5226 t
+( Jensen,)1 304(6. K.)1 339 2 720 5367 t
+9 PI f
+(Pascal User Manual and Report,)4 1192 1 1386 5367 t
+9 PA f
+( edition.\))1 358( \(2nd)1 228(Springer-Verlag \(1978\).)1 926 3 2601 5367 t
+( ``A Categorized Pascal Bibliography,'')4 1580( V. Moffat,)2 446(7. David)1 495 3 720 5508 t
+9 PI f
+(SIGPLAN Notices)1 690 1 3274 5508 t
+9 PB f
+(15)3997 5508 w
+9 PA f
+( \(October)1 383( 63-75)1 233(\(10\), pp.)1 337 3 4087 5508 t
+(1980\).)970 5613 w
+( on the Programming Language Pascal,'')5 1684( N. Habermann, ``Critical Comments)4 1520(8. A.)1 343 3 720 5754 t
+9 PI f
+(Acta Informatica)1 631 1 4304 5754 t
+9 PB f
+(3)4972 5754 w
+9 PA f
+(,)5017 5754 w
+(pp. 47-57 \(1973\).)2 650 1 970 5859 t
+( Lecarme and P. Desjardins, ``More Comments on the Programming Language Pascal,'')11 3534(9. O.)1 344 2 720 6000 t
+9 PI f
+(Acta Infor-)1 412 1 4628 6000 t
+(matica)970 6105 w
+9 PB f
+(4)1235 6105 w
+9 PA f
+(, pp. 231-243 \(1975\).)3 786 1 1280 6105 t
+( Critical Comparison of Several Programming Language Implementa-)7 2838( J. Boom and E. DeJong, ``A)6 1134(10. H.)1 348 3 720 6246 t
+(tions,'')970 6351 w
+9 PI f
+(Software Practice and Experience)3 1215 1 1262 6351 t
+9 PB f
+(10)2500 6351 w
+9 PA f
+(\(6\), pp. 435-473 \(June 1980\).)4 1093 1 2590 6351 t
+( Wirth, ``An Assessment of the Programming Language Pascal,'')8 2567(11. N.)1 348 2 720 6492 t
+9 PI f
+( on Software Engi-)3 690(IEEE Transactions)1 691 2 3659 6492 t
+(neering)970 6597 w
+9 PB f
+(SE-1)1268 6597 w
+9 PA f
+(\(2\), pp. 192-198 \(June, 1975\).)4 1116 1 1453 6597 t
+( Lecarme and P. Desjardins,)4 1108(12. O.)1 344 2 720 6738 t
+9 PI f
+(ibid)2195 6738 w
+9 PA f
+(, p. 239.)2 304 1 2331 6738 t
+( M. Addyman, ``A Draft Proposal for Pascal,'')7 1819(13. A.)1 343 2 720 6879 t
+9 PI f
+(SIGPLAN Notices)1 680 1 2905 6879 t
+9 PB f
+(15)3608 6879 w
+9 PA f
+(\(4\), pp. 1-66 \(April 1980\).)4 991 1 3698 6879 t
+( Insecurities in Pascal,'')3 928( Welsh, W. J. Sneeringer, and C. A. R. Hoare, ``Ambiguities and)11 2524(14. J.)1 303 3 720 7020 t
+9 PI f
+(Software Prac-)1 541 1 4499 7020 t
+(tice and Experience)2 705 1 970 7125 t
+9 PB f
+(7)1698 7125 w
+9 PA f
+(, pp. 685-696 \(1977\).)3 786 1 1743 7125 t
+( Wirth,)1 280(15. N.)1 348 2 720 7266 t
+9 PI f
+(ibid.)1371 7266 w
+9 PA f
+(, p. 196.)2 304 1 1530 7266 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 13 15
+%%Page: 14 16
+/saveobj save def
+mark
+16 pagesetup
+9 PA f
+(- 14 -)2 196 1 2782 470 t
+( Programming Reliability,'')2 1090( D. Gannon and J. J. Horning, ``Language Design for)9 2096(16. J.)1 303 3 720 825 t
+9 PI f
+(IEEE Trans. Software)2 805 1 4235 825 t
+(Engineering)970 930 w
+9 PB f
+(SE-1)1443 930 w
+9 PA f
+(\(2\), pp. 179-191 \(June 1975\).)4 1093 1 1628 930 t
+( D. Ichbiah, et al, ``Rationale for the Design of the Ada Programming Language,'')13 3300(17. J.)1 303 2 720 1071 t
+9 PI f
+(SIGPLAN Notices)1 687 1 4353 1071 t
+9 PB f
+(14)970 1176 w
+9 PA f
+(\(6\) \(June 1979\).)2 593 1 1060 1176 t
+( Welsh, W. J. Sneeringer, and C. A. R. Hoare,)9 1784(18. J.)1 303 2 720 1317 t
+9 PI f
+(ibid)2830 1317 w
+9 PA f
+(.)2966 1317 w
+( W. Kernighan and P. J. Plauger,)6 1286(19. B.)1 328 2 720 1458 t
+9 PI f
+(Software Tools in Pascal,)3 914 1 2357 1458 t
+9 PA f
+(Addison-Wesley \(1981\).)1 952 1 3294 1458 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 14 16
+%%Trailer
+done
+%%Pages: 16
+%%DocumentFonts: Courier Palatino-Roman Palatino-Bold Palatino-Italic Times-Roman
