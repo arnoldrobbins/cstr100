@@ -5,6 +5,7 @@
 	* Makefile: Makefile the PDF depend on the troff input.
 	* 100.ps: Original PostScript. New file.
 	* README.md: Updated.
+	* .gitignore: New file.
 
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 
