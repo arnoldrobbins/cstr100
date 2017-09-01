@@ -70,6 +70,7 @@ Software Tools
 %A B. W. Kernighan
 %A P. J. Plauger
 %I Addison-Wesley
+%C Reading, Mass.
 %D 1976
 .]
 in Pascal.
@@ -111,8 +112,9 @@ provided by the University of California at Berkeley.
 The language is close to the nominal standard
 of Jensen and Wirth,
 .[
-%A Jensen Wirth
+%A K. Jensen
 %T Pascal User Manual and Report
+%I Springer-Verlag
 %D 1978
 %O (2nd edition.)
 .]
@@ -143,11 +145,12 @@ lists 175 items under the heading of
 The most often cited papers (well worth reading) are
 a strong critique by Habermann
 .[
-%A A. Nico Habermann
+%A A. N. Habermann
 %T Critical Comments on the Programming Language Pascal
 %D 1973
 %J Acta Informatica
 %V 3
+%P 47-57
 .]
 and an equally strong rejoinder by
 Lecarme and Desjardins.
