@@ -6,7 +6,7 @@
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* tmac.s: Change absolute paths to relative ones.
-	Fix an numeric register reference that groff complains about it.
+	Fix a numeric register reference that groff complains about.
 
 2017-08-31         Arnold D. Robbins     <arnold@skeeve.com>
 
