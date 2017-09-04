@@ -1,3 +1,10 @@
+2017-09-04         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* tmac.s-newer-from-bwk: A newer version of the MS macros
+	supplied by BWK.  Would probably need some fixing to make
+	it work with groff. Did not solve the problem with .UL
+	in the original document.
+
 2017-09-01         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* tmac.srefs: Fix printing of date in tech report references.
