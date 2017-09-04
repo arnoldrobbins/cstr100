@@ -1,3 +1,10 @@
+2017-09-04         Arnold D. Robbins     <arnold@skeeve.com>
+
+	* cstr100.ms: Replace .UL calls with .CW to restore in-line
+	constant width text.  I do not know why the original managed
+	to work as it did, nor does BWK; this is the simplest way to
+	make the formatted result look as close as possible to the original.
+
 2017-09-01         Arnold D. Robbins     <arnold@skeeve.com>
 
 	* cstr100.ms: Revise some of the references to match the original

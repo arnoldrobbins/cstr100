@@ -227,9 +227,9 @@ not
 to be confused with dimensional analysis.
 If one defines 
 types
-.UL apple
+.CW apple
 and
-.UL orange
+.CW orange
 with
 .P1
 type
@@ -237,9 +237,9 @@ type
 	orange = integer;
 .P2
 then any arbitrary arithmetic expression involving
-.UL apples
+.CW apples
 and
-.UL oranges 
+.CW oranges 
 is perfectly legal.
 .PP
 Strong typing shows up in a variety of ways.
@@ -268,17 +268,17 @@ var	arr10 : array [1..10] of integer;
 	arr20 : array [1..20] of integer;
 .P2
 then
-.UL arr10
+.CW arr10
 and
-.UL arr20
+.CW arr20
 are arrays of 10 and 20 integers respectively.
 Suppose we want to write a procedure
-.UL sort
+.CW sort
 to sort an integer array.
 Because
-.UL arr10
+.CW arr10
 and
-.UL arr20
+.CW arr20
 have different types,
 it is not possible to write a single procedure
 that will sort them both.
@@ -292,28 +292,28 @@ to create a library of routines for doing common, general-purpose operations
 like sorting.
 .PP
 The particular data type most often affected is
-.UL array
-.UL of
-.UL char ,
+.CW array
+.CW of
+.CW char ,
 for in Pascal a string is an array of characters.
 Consider writing a function
-.UL index(s,c)
+.CW index(s,c)
 that will return the position in the string
-.UL s
+.CW s
 where the character
-.UL c
+.CW c
 first occurs, or zero if it does not.
 The problem is how to handle the string argument of
-.UL index .
+.CW index .
 The calls
-.UL index('hello',c)
+.CW index('hello',c)
 and
-.UL index('goodbye',c)
+.CW index('goodbye',c)
 cannot both be legal,
 since the strings have different lengths.
 (I pass over the question of how the end of a constant string
 like
-.UL 'hello'
+.CW \&'hello'
 can be detected, because it can't.)
 .PP
 The next try is
@@ -325,11 +325,11 @@ temp := 'hello';
 n := index(temp,c);
 .P2
 but the assignment to
-.UL temp
+.CW temp
 is illegal because
-.UL \&'hello'
+.CW \&'hello'
 and
-.UL temp
+.CW temp
 are of different lengths.
 .PP
 The only escape from this infinite regress
@@ -337,21 +337,21 @@ is to define a family of routines
 with a member for each possible string size,
 or to make all strings
 (including constant strings like
-.UL \&'define' )
+.CW \&'define' )
 of the same length.
 .PP
 The latter approach is the lesser of two great evils.
 In
 .IT Tools ,
 a type called
-.UL string
+.CW string
 is declared as
 .P1
 type string = array [1..MAXSTR] of char;
 .P2
 where
 the constant
-.UL MAXSTR
+.CW MAXSTR
 is ``big enough,''
 and
 all strings in all programs are exactly this size.
@@ -371,7 +371,7 @@ program to sort lines of text
 operates by fill\%ing up memory with as many lines as will fit;
 its running time depends strongly on how full the memory can be packed.
 Thus for
-.UL sort ,
+.CW sort ,
 another representation is used,
 a long array of characters and a set of indices into this array:
 .P1
@@ -391,13 +391,13 @@ As suggested above, a constant string is written as
 \&'this is a string'
 .P2
 and has the type
-.UL packed
-.UL array
-.UL [1..n]
-.UL of
-.UL char ,
+.CW packed
+.CW array
+.CW [1..n]
+.CW of
+.CW char ,
 where
-.UL n
+.CW n
 is the length.
 Thus each string literal of different length has a different type.
 The only way to write a routine that will print a message and clean up
@@ -408,9 +408,9 @@ error('this is a somewhat longer message');
 .P2
 .PP
 Many commercial Pascal compilers provide a
-.UL string
+.CW string
 data type that explicitly avoids the problem;
-.UL string 's
+.CW string 's
 are all taken to be the same type regardless of size.
 This solves the problem for this single data type,
 but no other.
@@ -479,11 +479,11 @@ De facto,
 Fortran variables are internal static, except for COMMON;\(dg
 .FS
 \(dg Strictly speaking, in Fortran 77 one must use
-.UL SAVE 
+.CW SAVE 
 to force the static attribute.
 .FE
 in C there is a
-.UL static
+.CW static
 declaration that can be applied to local variables.
 .PP
 Pascal has no such storage class.
@@ -505,7 +505,7 @@ One example comes from the text formatter described in Chapter 7 of
 .ul
 Tools.
 The variable 
-.UL dir
+.CW dir
 controls the direction from which
 excess blanks are inserted during line justification,
 to obtain left and right alternately.
@@ -535,11 +535,11 @@ The declaration,
 initialization
 and use
 of the variable
-.UL dir
+.CW dir
 are scattered all over the program,
 literally hundreds of lines apart.
 In C or Fortran,
-.UL dir
+.CW dir
 can be made private to the only routine
 that needs to know about it:
 .P1
@@ -571,7 +571,7 @@ initialize variables
 statically
 (i.e., at compile time);
 there is nothing analogous to Fortran's
-.UL DATA
+.CW DATA
 statement or initializers like
 .P1
 int dir = 0;
@@ -627,16 +627,16 @@ This is essentially opposite to the order in which
 the functions are designed and used.
 .PP
 To some extent this can be mitigated by a mechanism like the
-.UL #include
+.CW #include
 facility of C and Ratfor:
 source files can be included where needed without cluttering
 up the program.
-.UL #include
+.CW #include
 is not part of standard Pascal, although the UCB, VU and Whitesmiths compilers
 all provide it.
 .PP
 There is also a
-.UL forward
+.CW forward
 declaration in Pascal that permits separating the
 declaration of the function or procedure header from
 the body;
@@ -756,7 +756,7 @@ for types that are used often,
 but it is a distraction for things used only once.
 .PP
 It is nice to have the declaration
-.UL var
+.CW var
 for formal parameters of functions and procedures;
 the procedure clearly states that it intends to modify
 the argument.
@@ -770,15 +770,15 @@ to variables.)
 It is also a minor bother that arrays are passed by value
 by default \(em the net effect is that every array
 parameter is declared
-.UL var
+.CW var
 by the programmer more or less without thinking.
 If the
-.UL var
+.CW var
 declaration is inadvertently omitted,
 the resulting bug is subtle.
 .PP
 Pascal's
-.UL set
+.CW set
 construct seems like a good idea,
 providing notational convenience and some free type checking.
 For example, a set of tests like
@@ -794,9 +794,9 @@ this, because the size of a set is strongly implementation
 dependent (probably because it was so in the original CDC implementation:
 59 bits).
 For example, it is natural to attempt to write the function
-.UL isalphanum(c)
+.CW isalphanum(c)
 (``is 
-.UL c
+.CW c
 alphanumeric?'') as
 .P1
 { isalphanum(c) -- true if c is letter or digit }
@@ -835,13 +835,13 @@ the death of a thousand cuts,
 rather than a single blow to a vital spot.
 .PP
 There is no guaranteed order of evaluation of the logical operators
-.UL and
+.CW and
 and
-.UL or
+.CW or
 \(em nothing like
-.UL && 
+.CW && 
 and
-.UL ||
+.CW ||
 in C.
 This failing, which is shared with most other languages,
 hurts most often in loop control:
@@ -850,9 +850,9 @@ while (i <= XMAX) and (x[i] > 0) do ...
 .P2
 is extremely unwise Pascal usage,
 since there is no way to ensure that 
-.UL i
+.CW i
 is tested before
-.UL x[i]
+.CW x[i]
 is.
 .PP
 By the way, the parentheses in this code are mandatory \(em
@@ -860,7 +860,7 @@ the language has only four levels of operator precedence,
 with relationals at the bottom.
 .PP
 There is no
-.UL break
+.CW break
 statement for exiting loops.
 This is consistent with the one entry-one exit philosophy
 espoused by proponents of structured programming,
@@ -876,7 +876,7 @@ while (getnext(...)) {
 }
 .P2
 With no
-.UL break
+.CW break
 statement, the first attempt in Pascal is
 .P1
 done := false;
@@ -889,11 +889,11 @@ while (not done) and (getnext(...)) do
 .P2
 But this doesn't work, because there is no way to force
 the 
-.UL not "" ``
-.UL done ''
+.CW not "" ``
+.CW done ''
 to be evaluated before the
 next call of
-.UL getnext .
+.CW getnext .
 This leads, after several false starts, to
 .P1
 done := false;
@@ -907,7 +907,7 @@ while not done do begin
 end
 .P2
 Of course recidivists can use a
-.UL goto
+.CW goto
 and a label (numeric only and it has to be declared) to exit a loop.
 Otherwise, early exits are a pain,
 almost always requiring the invention of a boolean variable
@@ -931,20 +931,20 @@ while (i > 0) and (not done) do
 .P2
 .PP
 The index of a
-.UL for
+.CW for
 loop is undefined outside the loop, so
 it is not possible to figure out whether one 
 went to the end or not.
 The increment of a
-.UL for
+.CW for
 loop can only be
-.UL +1
+.CW +1
 or
-.UL -1 ,
+.CW -1 ,
 a minor restriction.
 .PP
 There is no 
-.UL return
+.CW return
 statement,
 again for one in-one out reasons.
 A function value is returned by setting the value of a pseudo-variable
@@ -956,29 +956,29 @@ except by reaching the end of the outermost block,
 although
 many implementations
 provide a
-.UL halt
+.CW halt
 that causes immediate termination.
 .PP
 The
-.UL case
+.CW case
 statement is better designed than in C,
 .ul
 except
 that there is no
-.UL default
+.CW default
 clause and the behavior is undefined 
 if the input expression does not match any of the cases.
 This crucial omission
 renders the 
-.UL case
+.CW case
 construct almost worthless.
 In over 6000 lines of Pascal in
 .IT "Software Tools in Pascal" ,
 I used it only four times,
 although if there had been a
-.UL default ,
+.CW default ,
 a
-.UL case
+.CW case
 would have served in at least a dozen places.
 .PP
 The new standard offers no relief on any of these points.
@@ -1028,28 +1028,28 @@ It is assumed that text files consist of records,
 that is, lines of text.
 When the last character of a line is read, the 
 built-in function
-.UL eoln
+.CW eoln
 becomes true;
 at that point, one must call
-.UL readln
+.CW readln
 to initiate reading a new line
 and reset
-.UL eoln .
+.CW eoln .
 Similarly, when the last character of the file is read,
 the built-in
-.UL eof
+.CW eof
 becomes true.
 In both cases,
-.UL eoln
+.CW eoln
 and
-.UL eof
+.CW eof
 must be tested before each
-.UL read
+.CW read
 rather than after.
 .PP
 Given this, considerable pains must be taken to simulate sensible input.
 This implementation of
-.UL getc
+.CW getc
 works for Berkeley and VU I/O systems,
 but may not necessarily work for anything else:
 .P1
@@ -1072,22 +1072,22 @@ begin
 end;
 .P2
 The type
-.UL character
+.CW character
 is not the same as
-.UL char ,
+.CW char ,
 since
-.UL ENDFILE
+.CW ENDFILE
 and perhaps
-.UL NEWLINE
+.CW NEWLINE
 are not legal values
 for a
-.UL char
+.CW char
 variable.
 .PP
 There is no notion at all of access to a file system except for predefined files
 named by (in effect) logical unit number
 in the 
-.UL program
+.CW program
 statement that begins each program.
 This apparently reflects the CDC batch system in which
 Pascal was originally developed.
@@ -1098,16 +1098,16 @@ var	fv : file of \f2type\fP
 is a very special kind of object \(em
 it cannot be assigned to, nor used except by calls to built-in procedures
 like
-.UL eof ,
-.UL eoln ,
-.UL read ,
-.UL write ,
-.UL reset
+.CW eof ,
+.CW eoln ,
+.CW read ,
+.CW write ,
+.CW reset
 and
-.UL rewrite .
-.UL reset "" (
+.CW rewrite .
+.CW reset "" (
 rewinds a file and makes it ready for re-reading;
-.UL rewrite
+.CW rewrite
 makes a file ready for writing.)
 .PP
 Most implementations of Pascal provide an escape hatch
@@ -1116,16 +1116,16 @@ but not conveniently
 and not standardly.
 For example, many systems permit a filename argument
 in calls to
-.UL reset
+.CW reset
 and
-.UL rewrite :
+.CW rewrite :
 .P1
 reset(fv, filename);
 .P2
 But
-.UL reset
+.CW reset
 and
-.UL rewrite
+.CW rewrite
 are procedures, not functions \(em
 there is no status return and
 no way to regain control if for some reason
@@ -1133,7 +1133,7 @@ the attempted access fails.
 (UCSD provides a compile-time flag
 that disables the normal abort.)
 And since
-.UL fv 's
+.CW fv 's
 can not appear in expressions like
 .P1
 reset(fv, filename);
@@ -1157,13 +1157,13 @@ in Pascal
 would return),
 the language has a built-in procedure
 called
-.UL new
+.CW new
 that allocates space from a heap.
 Only defined types may be allocated,
 so it is not possible to allocate, for example,
 arrays of arbitrary size to hold character strings.
 The pointers returned by
-.UL new
+.CW new
 may be passed around but not manipulated:
 there is no pointer arithmetic.
 There is no way to regain control if storage runs out.
@@ -1190,9 +1190,9 @@ if a then
 c;
 .P2
 But if something must be inserted before
-.UL b ,
+.CW b ,
 it no longer needs a semicolon, because it now precedes an
-.UL end :
+.CW end :
 .P1
 if a then begin
 	b0;
@@ -1201,12 +1201,12 @@ end;
 c;
 .P2
 Now if we add an
-.UL else ,
+.CW else ,
 we
 .ul
 must
 remove the semicolon on the
-.UL end :
+.CW end :
 .P1
 if a then begin
 	b0;
@@ -1249,17 +1249,17 @@ and get away with a semicolon as a terminator.
 The exceptions are in places like declarations, where the separator vs. terminator problem
 doesn't seem as serious anyway,
 and just before
-.UL else ,
+.CW else ,
 which is easy to remember.
 .PP
 C and Ratfor programmers find
-.UL begin
+.CW begin
 and
-.UL end
+.CW end
 bulky compared to
-.UL {
+.CW {
 and
-.UL } .
+.CW } .
 .PP
 A function name by itself is a call of that function;
 there is no way to distinguish such a function call from a simple variable
@@ -1271,11 +1271,11 @@ and can appear in expressions,
 in Pascal, its appearance in an expression
 is a recursive invocation:
 if
-.UL f
+.CW f
 is a zero-argument function,
-.UL f:=f+1
+.CW f:=f+1
 is a recursive call of
-.UL f .
+.CW f .
 .PP
 There is a paucity of operators (probably related to the
 paucity of precedence levels).
@@ -1294,7 +1294,7 @@ while getc(c) <> ENDFILE do begin
 end
 .P2
 because I couldn't write a sensible
-.UL xor
+.CW xor
 function.
 The set types help a bit here (so to speak), but not enough;
 people who claim that Pascal is a system programming language
@@ -1333,21 +1333,21 @@ usually by knowing something about the character set
 .PP
 There is no macro processor.
 The
-.UL const
+.CW const
 mechanism for defining manifest constants
 takes care of about 95 percent of the uses of
 simple
-.UL #define 
+.CW #define 
 statements in C,
 but more involved ones are hopeless.
 It is certainly possible to put a macro preprocessor on a Pascal compiler.
 This allowed me to simulate a sensible 
-.UL error
+.CW error
 procedure as
 .P1
 #define  error(s)  begin writeln(s); halt end
 .P2
-.UL halt "" (
+.CW halt "" (
 in turn might be defined as a branch to the end of
 the outermost block.)
 Then calls like
@@ -1357,7 +1357,7 @@ Then calls like
 .P2
 work
 since
-.UL writeln
+.CW writeln
 (as part of the standard Pascal environment)
 can handle strings of any size.
 It is unfortunate that there is no way to make this convenience
@@ -1477,7 +1477,7 @@ The order of logical expression evaluation cannot be controlled,
 which leads to convoluted code and extraneous variables.
 .IP 6.
 The
-.UL case
+.CW case
 statement is emasculated because there is no default clause.
 .IP 7.
 The standard I/O is defective.
